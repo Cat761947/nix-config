@@ -1,7 +1,13 @@
 { self, inputs, ... }: {
   flake.darwinConfigurations."main" = inputs.nix-darwin.lib.darwinSystem {
     modules = [ { 
-      imports = with self.modules.darwin; [ preferences ];
+      imports = with self.modules.darwin; [
+        preferences
+        packages-essential
+        packages-terminal
+        packages-utility
+        packages-games
+      ];
 
       nixpkgs.hostPlatform = "aarch64-darwin";
 
