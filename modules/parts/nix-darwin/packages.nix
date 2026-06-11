@@ -1,48 +1,51 @@
-{
+{ self, ... }: let
+  homebrew-config = self.modules.darwin.homebrew-config;
+in {
   flake.modules.darwin = {
     packages-essential = { pkgs, ... }: {
       nixpkgs.config.allowUnfree = true;
-      environment.systemPackages = [
-        pkgs.rectangle
-	pkgs.librewolf
-	pkgs.keka
+      environment.systemPackages = with pkgs; [
+        rectangle
+	librewolf
+	keka
       ];
 
-      homebrew.enable = true;
+      imports = [ homebrew-config ];
       homebrew.casks = [
         "vlc"
 	"linearmouse"
 	"freefilesync"
 	"proton-drive"
+	"macfuse"
 	"veracrypt"
 	"tuta-mail"
       ];
     };
 
     packages-terminal = { pkgs, ... }: {
-      environment.systemPackages = [
-        pkgs.ghostty-bin
-	pkgs.neovim
-	pkgs.ripgrep
-	pkgs.tmux
-	pkgs.starship
-	pkgs.git
-	pkgs.git-lfs
-	pkgs.tree
-	pkgs.fastfetch
+      environment.systemPackages = with pkgs; [
+        ghostty-bin
+	neovim
+	ripgrep
+	tmux
+	starship
+	git
+	git-lfs
+	tree
+	fastfetch
       ];
     };
 
     packages-utility = { pkgs, ... }: {
       nixpkgs.config.allowUnfree = true;
-      environment.systemPackages = [
-        pkgs.obsidian
-	pkgs.libreoffice-bin
-	pkgs.discord
-	pkgs.audacity
+      environment.systemPackages = with pkgs; [
+        obsidian
+	libreoffice-bin
+	discord
+	audacity
       ];
 
-      homebrew.enable = true;
+      imports = [ homebrew-config ];
       homebrew.casks = [
         "protonvpn"
 	"obs"
@@ -50,11 +53,11 @@
     };
 
     packages-games = { pkgs, ... }: {
-      environment.systemPackages = [
-        pkgs.prismlauncher
+      environment.systemPackages = with pkgs; [
+        prismlauncher
       ];
 
-      homebrew.enable = true;
+      imports = [ homebrew-config ];
       homebrew.casks = [
         "steam"
       ];
