@@ -1,20 +1,25 @@
 { self, inputs, ... }: {
   flake.darwinConfigurations."main" = inputs.nix-darwin.lib.darwinSystem {
-    modules = [ { 
-      imports = with self.modules.darwin; [
-        preferences
-        packages-essential
-        packages-terminal
-        packages-utility
-        packages-games
-      ];
+    modules = [
+      { 
+        imports = with self.modules.darwin; [
+          host-main-home-manager
 
-      nixpkgs.hostPlatform = "aarch64-darwin";
+	  preferences
+          packages-essential
+          packages-terminal
+          packages-utility
+          packages-games
+        ];
 
-      system.stateVersion = 7;
-      system.primaryUser = "cat_761947";
+        nixpkgs.hostPlatform = "aarch64-darwin";
 
-      nix.settings.experimental-features = "nix-command flakes";
-    } ];
+        system.stateVersion = 7;
+        system.primaryUser = "cat_761947";
+	users.users.cat_761947.home = "/Users/cat_761947";
+
+        nix.settings.experimental-features = "nix-command flakes";
+      } 
+    ];
   };
 }
