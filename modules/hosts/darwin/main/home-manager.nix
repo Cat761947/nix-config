@@ -9,8 +9,8 @@
       
       home.stateVersion = "26.11";
 
-      imports = [
-        self.homeModules.git-config
+      imports = with self.homeModules; [
+        git
       ];
     };
   };
