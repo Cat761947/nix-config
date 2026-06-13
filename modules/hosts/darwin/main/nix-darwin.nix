@@ -6,6 +6,8 @@
           host-main-home-manager
 
 	  preferences
+
+	  homebrew-config
           packages-essential
           packages-terminal
           packages-utility
