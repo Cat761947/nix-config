@@ -17,6 +17,8 @@
 	zsh-config
 	bash-config
 	fish-config
+
+	linearmouse-config
       ];
     };
   };
