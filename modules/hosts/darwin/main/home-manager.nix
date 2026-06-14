@@ -16,6 +16,7 @@
 
 	zsh-config
 	bash-config
+	fish-config
       ];
     };
   };
