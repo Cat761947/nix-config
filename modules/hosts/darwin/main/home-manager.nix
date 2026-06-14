@@ -19,6 +19,7 @@
 	fish-config
 
 	linearmouse-config
+	librewolf-config
       ];
     };
   };
