@@ -9,12 +9,13 @@
       
       home.stateVersion = "26.11";
 
-      programs.ghostty.package = null;
-
       imports = with self.homeModules; [
-        git
-	starship
-	ghostty
+        git-config
+	starship-config
+	ghostty-config
+
+	zsh-config
+	bash-config
       ];
     };
   };
