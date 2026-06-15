@@ -9,7 +9,6 @@
       "intl.regional_prefs.use_os_locales" = true;
       "layout.spellcheckDefault" = 0;
       "general.smoothScroll" = false;
-      "accessibility.browsewithcaret" = true;
 
       # Browser Privacy
       "privacy.clearOnShutdown_v2.cache" = false;
