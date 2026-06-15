@@ -1,5 +1,5 @@
-{ self, ... }: {
-  flake.homeModules.librewolf = {
+{ self, inputs, ... }: {
+  flake.homeModules.librewolf = { pkgs, ... }: {
     programs.librewolf.enable = true;
     programs.librewolf.settings = {
       # General
@@ -18,9 +18,25 @@
 
       "signon.management.page.breach-alerts.enabled" = false;
 
-      #LibreWolf Preferences
+      # LibreWolf Preferences
       "privacy.resistFingerprinting" = false;
       "librewolf.webgl.prompt.hide" = false;
+    };
+
+    programs.librewolf.profiles.default = {
+      id = 0;
+      isDefault = true;
+      settings = {
+        "extensions.autoDisableScopes" = 0;
+      };
+      extensions = {
+        packages = with pkgs.nur.repos.rycee.firefox-addons; [
+          canvasblocker
+	  sponsorblock
+	  bitwarden
+	  videospeed
+	];
+      };
     };
   };
 

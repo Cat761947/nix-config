@@ -4,6 +4,9 @@
   inputs = {
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    
+    nur.url = "github:nix-community/NUR";
+    nur.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:denful/import-tree";
