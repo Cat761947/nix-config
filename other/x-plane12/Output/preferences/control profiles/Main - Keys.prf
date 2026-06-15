@@ -1,0 +1,100 @@
+I
+1005 Version
+
+1 <NONE> sim/view/quick_look_0
+2 <NONE> sim/view/quick_look_1
+3 <NONE> sim/view/quick_look_2
+4 <NONE> sim/view/quick_look_3
+5 <NONE> sim/view/quick_look_4
+6 <NONE> sim/view/quick_look_5
+7 <NONE> sim/view/quick_look_6
+8 <NONE> sim/view/quick_look_7
+9 <NONE> sim/view/quick_look_8
+
+1 SHIFT+CTRL sim/view/quick_look_0_mem
+2 SHIFT+CTRL sim/view/quick_look_1_mem
+3 SHIFT+CTRL sim/view/quick_look_2_mem
+4 SHIFT+CTRL sim/view/quick_look_3_mem
+5 SHIFT+CTRL sim/view/quick_look_4_mem
+6 SHIFT+CTRL sim/view/quick_look_5_mem
+7 SHIFT+CTRL sim/view/quick_look_6_mem
+8 SHIFT+CTRL sim/view/quick_look_7_mem
+9 SHIFT+CTRL sim/view/quick_look_8_mem
+
+1 SHIFT sim/view/circle
+2 SHIFT sim/view/free_camera
+3 SHIFT sim/view/tower
+9 SHIFT sim/view/wingman
+
+0 <NONE> sim/view/default_view
+
+W <NONE> sim/general/forward
+A <NONE> sim/general/left
+S <NONE> sim/general/backward
+D <NONE> sim/general/right
+Q <NONE> sim/general/down
+E <NONE> sim/general/up
+
+W SHIFT sim/general/forward_fast
+A SHIFT sim/general/left_fast
+S SHIFT sim/general/backward_fast
+D SHIFT sim/general/right_fast
+Q SHIFT sim/general/down_fast
+E SHIFT sim/general/up_fast
+
+W CTRL sim/general/forward_slow
+A CTRL sim/general/left_slow
+S CTRL sim/general/backward_slow
+D CTRL sim/general/right_slow
+Q CTRL sim/general/down_slow
+E CTRL sim/general/up_slow
+
+Up <NONE> sim/general/rot_up
+Left <NONE> sim/general/rot_left
+Down <NONE> sim/general/rot_down
+Right <NONE> sim/general/rot_right
+
+Up SHIFT sim/general/rot_up_fast
+Left SHIFT sim/general/rot_left_fast
+Down SHIFT sim/general/rot_down_fast
+Right SHIFT sim/general/rot_right_fast
+
+Up CTRL sim/general/rot_up_slow
+Left CTRL sim/general/rot_left_slow
+Down CTRL sim/general/rot_down_slow
+Right CTRL sim/general/rot_right_slow
+
+R <NONE> sim/engines/throttle_up
+F <NONE> sim/engines/throttle_down
+V <NONE> sim/engines/thrust_reverse_toggle
+
+T <NONE> sim/flight_controls/pitch_trim_down
+G <NONE> sim/flight_controls/pitch_trim_up
+
+Y <NONE> sim/flight_controls/speed_brakes_up_one
+H <NONE> sim/flight_controls/speed_brakes_down_one
+
+U <NONE> sim/flight_controls/flaps_up
+J <NONE> sim/flight_controls/flaps_down
+
+I <NONE> sim/flight_controls/landing_gear_up
+K <NONE> sim/flight_controls/landing_gear_down
+
+O SHIFT sim/view/show_physics_model
+L SHIFT sim/view/3d_path_toggle
+L CTRL sim/view/3d_path_reset
+
+P <NONE> sim/flight_controls/brakes_toggle_max
+
+Z <NONE> sim/flight_controls/rudder_lft
+X <NONE> sim/flight_controls/rudder_ctr
+C <NONE> sim/flight_controls/rudder_rgt
+
+B <NONE> sim/flight_controls/rudder_trim_left
+N <NONE> sim/flight_controls/rudder_trim_center
+M <NONE> sim/flight_controls/rudder_trim_right
+
+Space <NONE> sim/flight_controls/brakes_regular
+Space SHIFT sim/flight_controls/brakes_max
+
+Space CTRL sim/flight_controls/glider_all_release

@@ -9,6 +9,7 @@
 - `/modules/features` contains pieces of configuration which add features to the system. This includes stuff such as packages and application configurations
 - `/modules/hosts` contains the main configs for the hosts. These files specify some system-specific setting and import reusable pieces of configuration from the `/modules/configs` and `/modules/features` directory
 - `/modules/extras` contains files which are not used by any configurations, but are still imported by the main flake.nix. One current use of this folder is to hold the packages needed to setup a fresh host
+- `/other` contains other files and folders which are manually copied over
 
 ### Module Naming Info
 
