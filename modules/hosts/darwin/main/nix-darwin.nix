@@ -26,6 +26,8 @@
       packages-terminal
       packages-utility
       packages-games
+
+      fonts
     ];
   };
 }
