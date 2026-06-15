@@ -1,5 +1,5 @@
 { self, ... }: {
-  flake.homeModules.ghostty = {
+  flake.homeModules.feature-ghostty = {
     programs.ghostty.enable = true;
     programs.ghostty.settings = {
       auto-update = "off";
@@ -8,8 +8,8 @@
     };
   };
 
-  flake.homeModules.ghostty-config = {
-    imports = [ self.homeModules.ghostty ];
+  flake.homeModules.feature-ghostty-noinstall = {
+    imports = [ self.homeModules.feature-ghostty ];
     programs.ghostty.package = null;
   };
 }

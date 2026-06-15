@@ -1,5 +1,5 @@
 { self, ... }: {
-  flake.modules.darwin.packages-essential = { pkgs, ... }: {
+  flake.modules.darwin.feature-packages-essential = { pkgs, ... }: {
     nixpkgs.config.allowUnfree = true;
     environment.systemPackages = with pkgs; [
       rectangle

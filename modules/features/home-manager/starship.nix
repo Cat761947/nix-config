@@ -1,5 +1,5 @@
 { self, ... }: {
-  flake.homeModules.starship = {
+  flake.homeModules.feature-starship = {
     programs.starship = {
       enable = true;
       presets = [ "catppuccin-powerline" ];
@@ -9,7 +9,7 @@
     };
   };
 
-  flake.homeModules.starship-config = {
-    imports = [ self.homeModules.starship ];
+  flake.homeModules.feature-starship-noinstall = {
+    imports = [ self.homeModules.feature-starship ];
   };
 }

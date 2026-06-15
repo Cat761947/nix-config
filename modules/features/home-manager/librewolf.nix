@@ -1,5 +1,5 @@
 { self, inputs, ... }: {
-  flake.homeModules.librewolf = { pkgs, ... }: {
+  flake.homeModules.feature-librewolf = { pkgs, ... }: {
     programs.librewolf.enable = true;
     programs.librewolf.settings = {
       # General
@@ -39,8 +39,8 @@
     };
   };
 
-  flake.homeModules.librewolf-config = {
-    imports = [ self.homeModules.librewolf ];
+  flake.homeModules.feature-librewolf-noinstall = {
+    imports = [ self.homeModules.feature-librewolf ];
     programs.librewolf.package = null;
   };
 }

@@ -5,18 +5,19 @@
 ### Folder Structure Info
 
 - `/modules` holds all of the .nix files which are imported by the main flake.nix
-- `/modules/parts` contains pieces of the configuration. Some or all of these parts are then imported by the main host configurations
-- `/modules/hosts` contains the main configs for the hosts. These files specify some system-specific setting and import reusable pieces of configuration from the `/modules/parts` directory
+- `/modules/configs` contains pieces of general configuration. This includes stuff such as the nix-darwin homebrew configuration
+- `/modules/features` contains pieces of configuration which add features to the system. This includes stuff such as packages and application configurations
+- `/modules/hosts` contains the main configs for the hosts. These files specify some system-specific setting and import reusable pieces of configuration from the `/modules/configs` and `/modules/features` directory
 - `/modules/extras` contains files which are not used by any configurations, but are still imported by the main flake.nix. One current use of this folder is to hold the packages needed to setup a fresh host
 
 ### Module Naming Info
 
-- `homeModules.<name>` is a regular home-manager module
-- `homeModules.<name>-config` is used for home-manager modules which configure a package. The `-config` version applies the configuration without installing the package. This is useful for when installed packages are managed system-wide instead of on a per-user basis
-	- Some `-config` variants output the exact same thing as the non `-config` counterpart. This is intended behavior for any applications which cannot be configured without also installing it via home-manager. The `-config` is still specified to make writing the host configurations not require checking of each home-manager module to see if it has a `-config` variant
-	- Some `-config` modules do not have a non-config variant. This is the case when it is impossible for home-manager to install the application, such as for applications only available via homebrew
-- `modules.darwin.<name>` is a regular nix-darwin modules
-- `modules.darwin.host-<config-name>-<name>` are nix-darwin modules located inside of the `/modules/host/darwin/<config-name>` directory are are not to be used for other configs
+- `feature-<name>` is a module which adds a feature and is located in `/modules/features`
+- `config-<name>` is a module which contains general configurations and is located in `/modules/configs`
+- `feature-<name>-noinstall` is a regular home-manager feature which configures an installed application, but attempts to prevent the package from being installed via home-manager. This is used when a different system, such as nix-darwin, manages installed packages
+	- There will always be a `-noinstall` variant of any home-manager application configuration, even if you cannot disable the installation of that package via home manager. This is to simplify the writing of the host configurations
+	- Some applications which are configured via a home-manager feature cannot be installed via home-manager. These modules will only have a `-noinstall` variant
+- `host-<config-identifier>-<name>` is a module which is located inside of `/modules/hosts`. These files, unlike other modules, are only meant to be imported by the specific hosts config identified by the `<config-identifier>` in the modules name
 
 ## Manually Changed Settings
 

@@ -1,5 +1,5 @@
 { self, ... }: {
-  flake.modules.darwin.packages-terminal = { pkgs, ... }: {
+  flake.modules.darwin.feature-packages-terminal = { pkgs, ... }: {
     programs = {
       zsh.enable = true;
       bash.enable = true;

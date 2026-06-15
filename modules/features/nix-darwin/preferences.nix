@@ -1,5 +1,5 @@
 {
-  flake.modules.darwin.preferences = {
+  flake.modules.darwin.feature-preferences = {
     
     # Firewall
     networking.applicationFirewall = {

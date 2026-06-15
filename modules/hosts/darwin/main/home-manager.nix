@@ -10,16 +10,16 @@
       home.stateVersion = "26.11";
 
       imports = with self.homeModules; [
-        git-config
-	starship-config
-	ghostty-config
+        feature-git-noinstall
+	feature-starship-noinstall
+	feature-ghostty-noinstall
 
-	zsh-config
-	bash-config
-	fish-config
+	feature-zsh-noinstall
+	feature-bash-noinstall
+	feature-fish-noinstall
 
-	linearmouse-config
-	librewolf-config
+	feature-linearmouse-noinstall
+	feature-librewolf-noinstall
       ];
     };
   };

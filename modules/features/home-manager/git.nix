@@ -1,5 +1,5 @@
 { self, ... }: {
-  flake.homeModules.git = {
+  flake.homeModules.feature-git = {
     programs.git.enable = true;
     programs.git.settings = {
       user.name = "Cat_761947";
@@ -8,8 +8,8 @@
     };
   };
 
-  flake.homeModules.git-config = {
-    imports = [ self.homeModules.git ];
+  flake.homeModules.feature-git-noinstall = {
+    imports = [ self.homeModules.feature-git ];
     programs.git.package = null;
   };
 }
