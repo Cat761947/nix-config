@@ -89,6 +89,7 @@
 	- **(+)** `* * 3p-script block`
 	- **(+)** `* * 3p-frame block`
 	- **(+)** `youtube.com * 3p-script noop`
+	- **(+)** `github.com * 3p-script noop`
 
 - **My Filters**
 	- **(+)** `youtube.com##.ytd-rich-section-renderer.style-scope`
