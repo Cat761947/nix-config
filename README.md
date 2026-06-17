@@ -73,7 +73,12 @@
 
 ### LibreWolf Extensions
 
+- **uBlock Origin** (https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
+- **CanvasBlocker** (https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/)
+- **Bitwarden** (https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/)
+- **SponsorBlock** (https://addons.mozilla.org/en-US/firefox/addon/sponsorblock/)
 - **Volume Control** (https://addons.mozilla.org/en-US/firefox/addon/volume-control-boost-volume/)
+- **Video Speed Controller** (https://addons.mozilla.org/en-US/firefox/addon/videospeed/)
 
 ### uBlock Origin Settings
 
