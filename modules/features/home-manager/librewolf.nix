@@ -1,5 +1,5 @@
 { self, inputs, ... }: {
-  flake.homeModules.feature-librewolf = { pkgs, ... }: {
+  flake.homeModules.feature-librewolf = {
     programs.librewolf.enable = true;
     programs.librewolf.settings = {
       # General

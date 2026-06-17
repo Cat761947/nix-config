@@ -3,7 +3,6 @@
   let
     configuration = { pkgs, ... }: {
       nixpkgs.hostPlatform = "aarch64-darwin";
-      nixpkgs.overlays = [ inputs.nur.overlays.default ];
 
       system.stateVersion = 7;
       system.primaryUser = "cat_761947";
