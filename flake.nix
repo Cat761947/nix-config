@@ -13,6 +13,8 @@
 
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; }

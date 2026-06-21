@@ -7,7 +7,7 @@
       system.stateVersion = 7;
       system.primaryUser = "cat_761947";
       users.users.cat_761947.home = "/Users/cat_761947";
-      users.users.cat_761947.shell = pkgs.fish;
+      users.users.cat_761947.shell = "/run/current-system/sw/bin/fish";
       users.users.cat_761947.uid = 501;
       users.knownUsers = [ "cat_761947" ];
       nix.settings.experimental-features = "nix-command flakes";

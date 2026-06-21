@@ -11,12 +11,10 @@
 
       imports = with self.homeModules; [
         feature-git-noinstall
-	feature-starship-noinstall
 	feature-ghostty-noinstall
 
 	feature-zsh-noinstall
 	feature-bash-noinstall
-	feature-fish-noinstall
 
 	feature-linearmouse-noinstall
 	feature-librewolf-noinstall

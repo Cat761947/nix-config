@@ -5,6 +5,7 @@
 ### Folder Structure Info
 
 - `/modules` holds all of the .nix files which are imported by the main flake.nix
+- `/modules/packages` holds all the wrapped packages (packages which have their config pre-installed). All of these are automatically made available to run externally, and may also be imported by other configuration files as regular packages
 - `/modules/configs` contains pieces of general configuration. This includes stuff such as the nix-darwin homebrew configuration
 - `/modules/features` contains pieces of configuration which add features to the system. This includes stuff such as packages and application configurations
 - `/modules/hosts` contains the main configs for the hosts. These files specify some system-specific setting and import reusable pieces of configuration from the `/modules/configs` and `/modules/features` directory
