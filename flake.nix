@@ -1,5 +1,5 @@
 {
-  description = "Nix Configuration for all my hosts";
+  description = "Nix configuration for all my hosts";
 
   inputs = {
 
