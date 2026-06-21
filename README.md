@@ -1,3 +1,9 @@
+# Repo Mirrors
+
+- **Codeberg** *<Main Repo>* (https://codeberg.org/Cat_761947/nix-config)
+- **GitHub** *<Mirror Repo>* (https://github.com/Cat761947/nix-config)
+- **GitLab** *<Mirror Repo>* (https://gitlab.com/Cat_761947/nix-config)
+
 # Nix Configuration
 
 ## Configuration Information
