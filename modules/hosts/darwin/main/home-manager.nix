@@ -10,8 +10,7 @@
       home.stateVersion = "26.11";
 
       imports = with self.homeModules; [
-        feature-git-noinstall
-	feature-ghostty-noinstall
+	feature-ghostty-package
 
 	feature-zsh-noinstall
 	feature-bash-noinstall

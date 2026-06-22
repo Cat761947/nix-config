@@ -8,16 +8,16 @@
     };
 
     environment.systemPackages = with pkgs; [
-      ghostty-bin
       neovim
       ripgrep
       tmux
-      git
       git-lfs
       tree
       fastfetch
       
       selfpkgs.starship
+      selfpkgs.git
+      selfpkgs.ghostty
     ];
   };
 }
