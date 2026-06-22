@@ -19,13 +19,13 @@
       host-main-home-manager
 
       feature-preferences
+      feature-terminal-main
 
       config-homebrew
       feature-packages-essential
-      feature-packages-terminal
       feature-packages-utility
       feature-packages-games
-
+      
       feature-fonts
     ];
   };

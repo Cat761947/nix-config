@@ -12,6 +12,7 @@
 
 - `/modules` holds all of the .nix files which are imported by the main flake.nix
 - `/modules/packages` holds all the wrapped packages (packages which have their config pre-installed). All of these are automatically made available to run externally, and may also be imported by other configuration files as regular packages
+- `/modules/bundles` holds wrapped bundles of other packages, such as a shell environment (which includes all the CLI applications)
 - `/modules/configs` contains pieces of general configuration. This includes stuff such as the nix-darwin homebrew configuration
 - `/modules/features` contains pieces of configuration which add features to the system. This includes stuff such as packages and application configurations
 - `/modules/hosts` contains the main configs for the hosts. These files specify some system-specific setting and import reusable pieces of configuration from the `/modules/configs` and `/modules/features` directory
@@ -23,6 +24,11 @@
 - `feature-<name>` is a module which adds a feature and is located in `/modules/features`
 - `config-<name>` is a module which contains general configurations and is located in `/modules/configs`
 - `host-<config-identifier>-<name>` is a module which is located inside of `/modules/hosts`. These files, unlike other modules, are only meant to be imported by the specific hosts config identified by the `<config-identifier>` in the modules name
+
+### Bundle Naming Info
+
+- `shell-<shell-type>-<name>` is a shell environment which runs the `<shell-type>` shell. These bundles also include all the CLI applications for that environment
+- `terminal-<terminal-type>-<name>` is a shell environment ran inside the `<terminal-type>` terminal emulator. In these bundles the terminal emulator shell is usually a shell bundle
 
 ## Manually Changed Settings
 
