@@ -22,9 +22,6 @@
 
 - `feature-<name>` is a module which adds a feature and is located in `/modules/features`
 - `config-<name>` is a module which contains general configurations and is located in `/modules/configs`
-- `feature-<name>-noinstall` is a regular home-manager feature which configures an installed application, but attempts to prevent the package from being installed via home-manager. This is used when a different system, such as nix-darwin, manages installed packages
-	- There will always be a `-noinstall` variant of any home-manager application configuration, even if you cannot disable the installation of that package via home manager. This is to simplify the writing of the host configurations
-	- Some applications which are configured via a home-manager feature cannot be installed via home-manager. These modules will only have a `-noinstall` variant
 - `host-<config-identifier>-<name>` is a module which is located inside of `/modules/hosts`. These files, unlike other modules, are only meant to be imported by the specific hosts config identified by the `<config-identifier>` in the modules name
 
 ## Manually Changed Settings

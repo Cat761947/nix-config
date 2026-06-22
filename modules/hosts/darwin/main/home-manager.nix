@@ -10,13 +10,9 @@
       home.stateVersion = "26.11";
 
       imports = with self.homeModules; [
-	feature-ghostty-package
-
-	feature-zsh-noinstall
-	feature-bash-noinstall
-
-	feature-linearmouse-noinstall
-	feature-librewolf-noinstall
+	feature-ghostty-package-config
+	feature-linearmouse-config
+	feature-librewolf-config
       ];
     };
   };

@@ -1,6 +1,7 @@
 { self, inputs, ... }: {
-  flake.homeModules.feature-librewolf = {
+  flake.homeModules.feature-librewolf-config = {
     programs.librewolf.enable = true;
+    programs.librewolf.package = null;
     programs.librewolf.settings = {
       # General
       "browser.startup.page" = 3;
@@ -21,10 +22,5 @@
       "privacy.resistFingerprinting" = false;
       "librewolf.webgl.prompt.hide" = false;
     };
-  };
-
-  flake.homeModules.feature-librewolf-noinstall = {
-    imports = [ self.homeModules.feature-librewolf ];
-    programs.librewolf.package = null;
   };
 }
