@@ -15,9 +15,13 @@
       selfpkgs.tmux
     ];
 
-    configFile.content = "${self.wrappers.fish.configFile.content} \n set SHELL ${placeholder config.outputName}/${config.binDir}/${config.binName} \n starship init fish | source";
-
-    # Temporary fix for MacOS where AppleGit takes higher priority than selfpkgs.git
-    shellAliases = if pkgs.stdenv.isDarwin then { git = lib.getExe selfpkgs.git; } else {};
+    configFile.content = 
+    ''
+      ${self.wrappers.fish.configFile.content}
+      # Line below fixes Apple Git overriding selfpkgs.git
+      ${if pkgs.stdenv.isDarwin then "set PATH \"${lib.getBin selfpkgs.git}/bin:\$PATH\"" else ""}
+      set SHELL ${placeholder config.outputName}/${config.binDir}/${config.binName}
+      starship init fish | source
+    '';
   };
 }
