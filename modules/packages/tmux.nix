@@ -33,6 +33,11 @@
         
 	set -g status-keys vi
 	set -g mode-keys vi
+        
+	bind-key h select-pane -L
+        bind-key j select-pane -D
+        bind-key k select-pane -U
+        bind-key l select-pane -R
 
 	set -g @catppuccin_flavor "mocha"
         set -g @catppuccin_window_status_style "rounded"
