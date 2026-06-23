@@ -19,8 +19,8 @@
     ''
       ${self.wrappers.fish.configFile.content}
       # Line below fixes Apple Git overriding selfpkgs.git
-      ${if pkgs.stdenv.isDarwin then "set PATH \"${lib.getBin selfpkgs.git}/bin:\$PATH\"" else ""}
-      set SHELL ${placeholder config.outputName}/${config.binDir}/${config.binName}
+      ${if pkgs.stdenv.isDarwin then "set -gxp PATH ${lib.getBin selfpkgs.git}/bin" else ""}
+      set -gx SHELL ${placeholder config.outputName}/${config.binDir}/${config.binName}
       starship init fish | source
     '';
   };
