@@ -6,13 +6,13 @@
     runtimePkgs = with pkgs; [
       neovim
       ripgrep
-      tmux
       git-lfs
       tree
       fastfetch
 
       selfpkgs.starship
       selfpkgs.git
+      selfpkgs.tmux
     ];
 
     configFile.content = "${self.wrappers.fish.configFile.content} \n starship init fish | source";
