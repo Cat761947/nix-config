@@ -15,8 +15,8 @@
       selfpkgs.tmux
     ];
 
-    configFile.content = "${self.wrappers.fish.configFile.content} \n starship init fish | source";
-    
+    configFile.content = "${self.wrappers.fish.configFile.content} \n set SHELL (which fish) \n starship init fish | source";
+
     # Temporary fix for MacOS where AppleGit takes higher priority than selfpkgs.git
     shellAliases = if pkgs.stdenv.isDarwin then { git = lib.getExe selfpkgs.git; } else {};
   };
