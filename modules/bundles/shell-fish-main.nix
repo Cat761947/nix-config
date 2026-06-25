@@ -13,7 +13,7 @@
 
     catppuccinFlavour = wrapConfig.catppuccinFlavour;
 
-    runtimePkgs = with pkgs; [
+    runtimePkgs = with pkgs; builtins.map (package: { data = package; prefix = true; }) [
       neovim
       ripgrep
       git-lfs
@@ -28,10 +28,8 @@
     configFile.content = 
     ''
       ${self.wrappers.fish.configFile.content}
-      # Line below fixes Apple Git overriding selfpkgs.git
-      ${if pkgs.stdenv.isDarwin then "set -gxp PATH ${lib.getBin selfpkgs.git}/bin" else ""}
       set -gx SHELL ${placeholder config.outputName}/${config.binDir}/${config.binName}
-      starship init fish | source
+      ${lib.getExe selfpkgs.starship} init fish | source
     '';
   };
 }
