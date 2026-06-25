@@ -1,4 +1,4 @@
-{
+{ self, ... }: {
   flake.wrappers.tmux = { wlib, pkgs, config, ... }: let
     tmuxRepo = pkgs.fetchFromGitHub {
       sha256 = "sha256-oRKUZNyJYQXlkeQfbEYiltUEBpvdwn2SoEBWHVUNmrA=";
@@ -11,7 +11,7 @@
     pluginDirectory = "~/.local/share/tmux/plugins";
 
   in {
-    imports = [ wlib.modules.default ];
+    imports = [ wlib.modules.default self.wrapperModules.catppuccin-flavour-config ];
     package = pkgs.tmux;
     buildCommand.installTPM = {
       # the sed command is to change the tpm tmux config directory to the nix store one. chmod is because the folder does not have write perms
@@ -39,7 +39,7 @@
         bind-key k select-pane -U
         bind-key l select-pane -R
 
-	set -g @catppuccin_flavor "mocha"
+	set -g @catppuccin_flavor "${config.catppuccinFlavour}"
         set -g @catppuccin_window_status_style "rounded"
         
 	run "${storePath}/tpm/tpm"

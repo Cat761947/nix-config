@@ -1,6 +1,6 @@
-{
+{ lib, self, ... }: {
   flake.wrappers.ghostty = { wlib, pkgs, config, ... }: {
-    imports = [ wlib.modules.default ];
+    imports = [ wlib.modules.default self.wrapperModules.catppuccin-flavour-config ];
     package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
     flags = {
       "--config-default-files" = "false";
@@ -10,7 +10,7 @@
 
     constructFiles."config" = {
       content = ''
-        theme = Catppuccin Mocha
+        theme = Catppuccin ${lib.toSentenceCase config.catppuccinFlavour}
 	auto-update = off
 	font-family = FiraCode Nerd Font
       '';

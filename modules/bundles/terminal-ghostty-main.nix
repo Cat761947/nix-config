@@ -4,5 +4,6 @@
     imports = [ self.wrapperModules.ghostty ];
     runtimePkgs = [ selfpkgs.shell-fish-main ];
     flags."--command" = lib.getExe selfpkgs.shell-fish-main;
+    catppuccinFlavour = self.wrappers.shell-fish-main.catppuccinFlavour;
   };
 }

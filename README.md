@@ -28,7 +28,7 @@
 ### Bundle Naming Info
 
 - `shell-<shell-type>-<name>` is a shell environment which runs the `<shell-type>` shell. These bundles also include all the CLI applications for that environment
-- `terminal-<terminal-type>-<name>` is a shell environment ran inside the `<terminal-type>` terminal emulator. In these bundles the terminal emulator shell is usually a shell bundle
+- `terminal-<terminal-type>-<name>` is a shell environment ran inside the `<terminal-type>` terminal emulator. In these bundles the terminal emulator shell is usually a shell bundle. If the shell is a shell bundle, the terminals theme is set to the shell bundle's theme
 
 ## Manually Changed Settings
 

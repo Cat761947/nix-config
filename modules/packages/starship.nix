@@ -1,9 +1,9 @@
-{
-  flake.wrappers.starship = { wlib, ... }: {
-    imports = [ wlib.wrapperModules.starship ];
+{ self, ... }: {
+  flake.wrappers.starship = { config, wlib, ... }: {
+    imports = [ wlib.wrapperModules.starship self.wrapperModules.catppuccin-flavour-config ];
     preset = [ "catppuccin-powerline" ];
     settings = {
-      palette = "catppuccin_mocha";
+      palette = "catppuccin_${config.catppuccinFlavour}";
     };
   };
 }

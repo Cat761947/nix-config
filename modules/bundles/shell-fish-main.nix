@@ -1,8 +1,18 @@
 { self, lib, ... }: {
   flake.wrappers.shell-fish-main = { pkgs, wlib, config, ... }:
-  let selfpkgs = self.packages.${pkgs.stdenv.hostPlatform.system}; in {
+  let
+    wrapConfig = { catppuccinFlavour = "mocha"; };
+
+    selfpkgs = with self.packages.${pkgs.stdenv.hostPlatform.system}; {
+      starship = starship.wrap wrapConfig;
+      inherit git;
+      tmux = tmux.wrap wrapConfig;
+    };
+  in {
     imports = with self.wrapperModules; [ fish wlib.modules.default ];
-    
+
+    catppuccinFlavour = wrapConfig.catppuccinFlavour;
+
     runtimePkgs = with pkgs; [
       neovim
       ripgrep
