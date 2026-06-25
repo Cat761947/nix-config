@@ -11,7 +11,7 @@
     pluginDirectory = "~/.local/share/tmux/plugins";
 
   in {
-    imports = [ wlib.modules.default self.wrapperModules.catppuccin-flavour-config ];
+    imports = [ wlib.modules.default self.wrapperModules.config-catppuccin-flavour ];
     package = pkgs.tmux;
     buildCommand.installTPM = {
       # the sed command is to change the tpm tmux config directory to the nix store one. chmod is because the folder does not have write perms

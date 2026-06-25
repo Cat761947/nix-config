@@ -1,6 +1,6 @@
 { lib, self, ... }: {
   flake.wrappers.ghostty = { wlib, pkgs, config, ... }: {
-    imports = [ wlib.modules.default self.wrapperModules.catppuccin-flavour-config ];
+    imports = [ wlib.modules.default self.wrapperModules.config-catppuccin-flavour ];
     package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
     flags = {
       "--config-default-files" = "false";
