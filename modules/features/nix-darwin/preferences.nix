@@ -1,5 +1,5 @@
 {
-  flake.modules.darwin.feature-preferences = {
+  flake.modules.darwin.feature-preferences = { config, ... }: {
     
     # Firewall
     networking.applicationFirewall = {
@@ -167,6 +167,6 @@
     };
 
     # TextEdit
-    system.defaults.CustomUserPreferences."/Users/cat_761947/Library/Containers/com.apple.TextEdit/Data/Library/Preferences/com.apple.TextEdit.plist".RichText = 0;
+    system.defaults.CustomUserPreferences."${config.users.users.${config.system.primaryUser}.home}/Library/Containers/com.apple.TextEdit/Data/Library/Preferences/com.apple.TextEdit.plist".RichText = 0;
   };
 }
