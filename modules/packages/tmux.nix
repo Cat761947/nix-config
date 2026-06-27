@@ -8,7 +8,7 @@
     };
 
     storePath = placeholder config.outputName;
-    pluginDirectory = "~/.local/share/tmux/plugins";
+    pluginDirectory = "${config.xdgDirectories.XDG_DATA_HOME}/tmux/plugins";
 
   in {
     imports = [
