@@ -61,7 +61,10 @@
     };
     flags."-f" = config.constructFiles."tmux.conf".path;
     flagSeparator = "";
-    runShell = [ "mkdir -p ${pluginDirectory}" ];
-    env.TMUX_PLUGIN_MANAGER_PATH = pluginDirectory;
+    runShell = [ "mkdir -p \"${pluginDirectory}\" ${if config.xdgDirectories.XDG_RUNTIME_DIR == null then "" else "\"${config.xdgDirectories.XDG_RUNTIME_DIR}\""}" ];
+    env = {
+      TMUX_PLUGIN_MANAGER_PATH = { data = pluginDirectory; esc-fn = x: "\"${x}\""; };
+      TMUX_TMPDIR = { data = config.xdgDirectories.XDG_RUNTIME_DIR; esc-fn = x: "\"${x}\""; };
+    };
   };
 }

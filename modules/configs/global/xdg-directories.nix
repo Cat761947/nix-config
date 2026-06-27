@@ -16,7 +16,7 @@
     XDG_DATA_DIRS = XDG_DATA_DIRS;
     XDG_CONFIG_DIRS = XDG_CONFIG_DIRS;
     XDG_CACHE_HOME = "${homeDirectory}/.cat_761947/cache";
-    XDG_RUNTIME_DIR = XDG_RUNTIME_DIR;
+    XDG_RUNTIME_DIR = "${homeDirectory}/.cat_761947/runtime";
   };
 
   xdgDirsConfig = homeDirectory: builtins.mapAttrs (name: value: lib.mkOption {
