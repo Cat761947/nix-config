@@ -1,4 +1,4 @@
-{ self, inputs, ... }: {
+{ self, inputs, lib, ... }: {
   flake.darwinConfigurations."main" =
   let
     configuration = { pkgs, config, ... }: {
@@ -8,7 +8,7 @@
       system.primaryUser = "cat_761947";
       users.users.${config.system.primaryUser} = {
         home = "/Users/${config.system.primaryUser}";
-        shell = "/run/current-system/sw/bin/fish";
+        shell = lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.shell-fish-main;
         uid = 501;
       };
       users.knownUsers = [ config.system.primaryUser ];
