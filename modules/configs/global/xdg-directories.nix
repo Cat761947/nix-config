@@ -10,12 +10,12 @@
   };
 
   xdgDirectories = homeDirectory: with xdgDefault homeDirectory; {
-    XDG_DATA_HOME = "${homeDirectory}/.xdg/data";
-    XDG_CONFIG_HOME = "${homeDirectory}/.xdg/config";
-    XDG_STATE_HOME = "${homeDirectory}/.xdg/state";
+    XDG_DATA_HOME = "${homeDirectory}/.cat_761947/data";
+    XDG_CONFIG_HOME = "${homeDirectory}/.cat_761947/config";
+    XDG_STATE_HOME = "${homeDirectory}/.cat_761947/state";
     XDG_DATA_DIRS = XDG_DATA_DIRS;
     XDG_CONFIG_DIRS = XDG_CONFIG_DIRS;
-    XDG_CACHE_HOME = "${homeDirectory}/.xdg/cache";
+    XDG_CACHE_HOME = "${homeDirectory}/.cat_761947/cache";
     XDG_RUNTIME_DIR = XDG_RUNTIME_DIR;
   };
 
