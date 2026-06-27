@@ -65,9 +65,6 @@
 - Show notifications when display is sleeping (On)
 - App Notification Settings
 
-**Sound**
-- Play sound on startup (Off)
-
 **Lock Screen**
 - Turn display off on batter when inactive (5 minutes)
 - Turn display off on power adapter when inactive (10 minutes)

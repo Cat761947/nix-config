@@ -128,6 +128,7 @@
       ".GlobalPreferences"."com.apple.sound.beep.sound" = "/System/Library/Sounds/Funk.aiff";
       NSGlobalDomain."com.apple.sound.beep.feedback" = 1;
     };
+    system.startup.chime = false;
 
     # Keyboard
     system.defaults = {
