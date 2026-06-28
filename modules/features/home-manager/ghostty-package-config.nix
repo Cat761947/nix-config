@@ -1,9 +1,13 @@
-{ self, ... }: {
-  flake.homeModules.feature-ghostty-package-config = { config, ... }: let
-    envVar = varName: if config.xdgDirectories.${varName} != null then "env = ${varName}=${config.xdgDirectories.${varName}}" else "";
-  in{
-    imports = [ self.homeModules.config-xdg-directories ];
-    home.file.".config/ghostty/config".text = with config.xdgDirectories; ''
+{self, ...}: {
+  flake.homeModules.feature-ghostty-package-config = {config, ...}: let
+    envVar = varName:
+      with config;
+        if xdgDirectories.${varName} != null
+        then "env = ${varName}=${xdgDirectories.${varName}}"
+        else "";
+  in {
+    imports = [self.homeModules.config-xdg-directories];
+    home.file.".config/ghostty/config".text = ''
       ${self.wrappers.ghostty.constructFiles.config.content}
       ${envVar "XDG_DATA_HOME"}
       ${envVar "XDG_CONFIG_HOME"}

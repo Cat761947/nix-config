@@ -1,8 +1,8 @@
-{ self, inputs, ... }: {
-  flake.homeModules.feature-librewolf-config = {
-    programs.librewolf.enable = true;
-    programs.librewolf.package = null;
-    programs.librewolf.settings = {
+{
+  flake.homeModules.feature-librewolf-config.programs.librewolf = {
+    enable = true;
+    package = null;
+    settings = {
       # General
       "browser.startup.page" = 3;
       "browser.ctrlTab.sortByRecentlyUsed" = true;

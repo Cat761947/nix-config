@@ -1,11 +1,19 @@
-{ self, ... }: {
-  flake.wrappers.fish = { config, wlib, ... }: {
-    imports = [
+{self, ...}: {
+  flake.wrappers.fish = {
+    config,
+    wlib,
+    ...
+  }: {
+    imports = with self.wrapperModules; [
       wlib.wrapperModules.fish
-      self.wrapperModules.config-catppuccin-flavour
-      self.wrapperModules.config-xdg-directories
+      config-catppuccin-flavour
+      config-xdg-directories
     ];
-    configFile.content = "fish_config theme choose catppuccin-${if (config.catppuccinFlavour == "latte") then "mocha --color-theme=light" else config.catppuccinFlavour}";
+    configFile.content = with config; "fish_config theme choose catppuccin-${
+      if (catppuccinFlavour == "latte")
+      then "mocha --color-theme=light"
+      else catppuccinFlavour
+    }";
     flags."--no-config" = false;
   };
 }

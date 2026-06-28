@@ -1,11 +1,15 @@
-{ self, ... }: {
-  flake.wrappers.starship = { config, wlib, ... }: {
-    imports = [
+{self, ...}: {
+  flake.wrappers.starship = {
+    config,
+    wlib,
+    ...
+  }: {
+    imports = with self.wrapperModules; [
       wlib.wrapperModules.starship
-      self.wrapperModules.config-catppuccin-flavour
-      self.wrapperModules.config-xdg-directories
+      config-catppuccin-flavour
+      config-xdg-directories
     ];
-    preset = [ "catppuccin-powerline" ];
+    preset = ["catppuccin-powerline"];
     settings = {
       palette = "catppuccin_${config.catppuccinFlavour}";
     };

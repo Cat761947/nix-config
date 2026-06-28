@@ -4,7 +4,11 @@
   lib,
   ...
 }: let
-  configuration = {config, pkgs, ...}: {
+  configuration = {
+    config,
+    pkgs,
+    ...
+  }: {
     vim = {
       theme = {
         enable = true;
@@ -20,14 +24,14 @@
         formatOnSave = true;
         enable = true;
       };
-      
+
       languages = {
         enableFormat = true;
         enableTreesitter = true;
         nix.enable = true;
       };
 
-      extraPackages = [ pkgs.ripgrep pkgs.tree-sitter ];
+      extraPackages = [pkgs.ripgrep pkgs.tree-sitter];
     };
   };
 in {

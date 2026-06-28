@@ -1,7 +1,7 @@
-{ inputs, ... }:{
-  imports = [
-    inputs.flake-parts.flakeModules.modules
-    inputs.home-manager.flakeModules.home-manager
-    inputs.wrapper-modules.flakeModules.wrappers
+{inputs, ...}: {
+  imports = with inputs; [
+    flake-parts.flakeModules.modules
+    home-manager.flakeModules.home-manager
+    wrapper-modules.flakeModules.wrappers
   ];
 }

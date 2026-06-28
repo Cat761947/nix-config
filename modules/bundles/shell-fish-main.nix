@@ -1,7 +1,15 @@
-{ self, lib, ... }: {
-  flake.wrappers.shell-fish-main = { pkgs, wlib, config, ... }:
-  let
-    wrapConfig = { catppuccinFlavour = "mocha"; };
+{
+  self,
+  lib,
+  ...
+}: {
+  flake.wrappers.shell-fish-main = {
+    pkgs,
+    wlib,
+    config,
+    ...
+  }: let
+    wrapConfig = {catppuccinFlavour = "mocha";};
 
     selfpkgs = with self.packages.${pkgs.stdenv.hostPlatform.system}; {
       starship = starship.wrap wrapConfig;
@@ -10,25 +18,28 @@
       neovim = neovim.wrap wrapConfig;
     };
   in {
-    imports = with self.wrapperModules; [ fish wlib.modules.default ];
+    imports = with self.wrapperModules; [fish wlib.modules.default];
 
     catppuccinFlavour = wrapConfig.catppuccinFlavour;
 
-    runtimePkgs = with pkgs; builtins.map (package: { data = package; prefix = true; }) [
-      git-lfs
-      tree
-      fastfetch
+    runtimePkgs = with selfpkgs;
+      builtins.map (package: {
+        data = package;
+        prefix = true;
+      }) [
+        pkgs.git-lfs
+        pkgs.tree
+        pkgs.fastfetch
 
-      selfpkgs.starship
-      selfpkgs.git
-      selfpkgs.tmux
-      selfpkgs.neovim
-    ];
+        starship
+        git
+        tmux
+        neovim
+      ];
 
-    configFile.content = 
-    ''
+    configFile.content = with config; ''
       ${self.wrappers.fish.configFile.content}
-      set -gx SHELL ${placeholder config.outputName}/${config.binDir}/${config.binName}
+      set -gx SHELL ${placeholder outputName}/${binDir}/${binName}
       ${lib.getExe selfpkgs.starship} init fish | source
     '';
   };

@@ -1,5 +1,10 @@
-{ self, ... }: {
-  flake.wrappers.tmux = { wlib, pkgs, config, ... }: let
+{self, ...}: {
+  flake.wrappers.tmux = {
+    wlib,
+    pkgs,
+    config,
+    ...
+  }: let
     tmuxRepo = pkgs.fetchFromGitHub {
       sha256 = "sha256-oRKUZNyJYQXlkeQfbEYiltUEBpvdwn2SoEBWHVUNmrA=";
       rev = "e261deb1b47614eed3400089ce7197dc68acc4eb";
@@ -9,12 +14,11 @@
 
     storePath = placeholder config.outputName;
     pluginDirectory = "${config.xdgDirectories.XDG_DATA_HOME}/tmux/plugins";
-
   in {
-    imports = [
+    imports = with self.wrapperModules; [
       wlib.modules.default
-      self.wrapperModules.config-catppuccin-flavour
-      self.wrapperModules.config-xdg-directories
+      config-catppuccin-flavour
+      config-xdg-directories
     ];
     package = pkgs.tmux;
     buildCommand.installTPM = {
@@ -25,48 +29,60 @@
       relPath = "tmux.conf";
       content = ''
         set -g @plugin "tmux-plugins/tpm"
-	set -g @plugin "tmux-plugins/tmux-battery"
-	set -g @plugin "catppuccin/tmux#v2.3.0"
+        set -g @plugin "tmux-plugins/tmux-battery"
+        set -g @plugin "catppuccin/tmux#v2.3.0"
         set -g @plugin "christoomey/vim-tmux-navigator"
 
-	unbind C-b
-	set -g prefix C-a
-	bind-key C-a send-prefix
-	
-	set -g base-index 1
-        
-	set -g status-keys vi
-	set -g mode-keys vi
+        unbind C-b
+        set -g prefix C-a
+        bind-key C-a send-prefix
+
+        set -g base-index 1
+
+        set -g status-keys vi
+        set -g mode-keys vi
 
         set -g focus-events on
-                
-	bind-key h select-pane -L
+
+        bind-key h select-pane -L
         bind-key j select-pane -D
         bind-key k select-pane -U
         bind-key l select-pane -R
 
-	set -g @catppuccin_flavor "${config.catppuccinFlavour}"
+        set -g @catppuccin_flavor "${config.catppuccinFlavour}"
         set -g @catppuccin_window_status_style "rounded"
-        
-	run "${storePath}/tpm/tpm"
-        
-	set -g status-right-length 100
+
+        run "${storePath}/tpm/tpm"
+
+        set -g status-right-length 100
         set -g status-left-length 100
         set -g status-left ""
         set -g status-right "#{E:@catppuccin_status_application}"
         set -ag status-right "#{E:@catppuccin_status_session}"
         set -ag status-right "#{E:@catppuccin_status_uptime}"
         set -agF status-right "#{E:@catppuccin_status_battery}"
-        
-	run "${storePath}/tpm/tpm"
+
+        run "${storePath}/tpm/tpm"
       '';
     };
     flags."-f" = config.constructFiles."tmux.conf".path;
     flagSeparator = "";
-    runShell = [ "mkdir -p \"${pluginDirectory}\" ${if config.xdgDirectories.XDG_RUNTIME_DIR == null then "" else "\"${config.xdgDirectories.XDG_RUNTIME_DIR}\""}" ];
+    runShell = with config.xdgDirectories; [
+      "mkdir -p \"${pluginDirectory}\" ${
+        if XDG_RUNTIME_DIR == null
+        then ""
+        else "\"${XDG_RUNTIME_DIR}\""
+      }"
+    ];
     env = {
-      TMUX_PLUGIN_MANAGER_PATH = { data = pluginDirectory; esc-fn = x: "\"${x}\""; };
-      TMUX_TMPDIR = { data = config.xdgDirectories.XDG_RUNTIME_DIR; esc-fn = x: "\"${x}\""; };
+      TMUX_PLUGIN_MANAGER_PATH = {
+        data = pluginDirectory;
+        esc-fn = x: "\"${x}\"";
+      };
+      TMUX_TMPDIR = {
+        data = config.xdgDirectories.XDG_RUNTIME_DIR;
+        esc-fn = x: "\"${x}\"";
+      };
     };
   };
 }
