@@ -23,7 +23,7 @@
     catppuccinFlavour = wrapConfig.catppuccinFlavour;
 
     runtimePkgs = with selfpkgs;
-      builtins.map (package: {
+      map (package: {
         data = package;
         prefix = true;
       }) [

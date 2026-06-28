@@ -1,5 +1,5 @@
 {self, ...}: {
-  flake.modules.darwin.feature-terminal-main = {pkgs, ...}: let
+  flake.modules.darwin.feature-terminal-main = let
     selfpkgs = self.packages.aarch64-darwin;
   in {
     programs = {
