@@ -16,21 +16,29 @@
         name = "catppuccin";
       };
 
-      opts = {
-        shiftwidth = 2;
+      diagnostics = {
+        enable = true;
+        config.virtual_text = true;
       };
 
       lsp = {
         formatOnSave = true;
         enable = true;
+        inlayHints.enable = true;
       };
 
       languages = {
         enableFormat = true;
         enableTreesitter = true;
-        nix.enable = true;
+        nix = {
+          enable = true;
+          lsp.servers = ["nixd"];
+        };
       };
 
+      autocomplete.blink-cmp.enable = true;
+
+      opts.shiftwidth = 2;
       extraPackages = [pkgs.ripgrep pkgs.tree-sitter];
     };
   };
@@ -38,9 +46,13 @@ in {
   flake.wrappers.neovim = {
     pkgs,
     config,
+    wlib,
     ...
   }: {
-    imports = with self.wrapperModules; [config-xdg-directories config-catppuccin-flavour];
+    imports = with self.wrapperModules; [wlib.modules.default config-xdg-directories config-catppuccin-flavour];
+    env = {
+      NIX_PATH = "nixpkgs=${inputs.nixpkgs}";
+    };
     package =
       (inputs.nvf.lib.neovimConfiguration {
         inherit pkgs;
