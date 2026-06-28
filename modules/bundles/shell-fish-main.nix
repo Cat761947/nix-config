@@ -7,6 +7,7 @@
       starship = starship.wrap wrapConfig;
       inherit git;
       tmux = tmux.wrap wrapConfig;
+      neovim = neovim.wrap wrapConfig;
     };
   in {
     imports = with self.wrapperModules; [ fish wlib.modules.default ];
@@ -14,8 +15,6 @@
     catppuccinFlavour = wrapConfig.catppuccinFlavour;
 
     runtimePkgs = with pkgs; builtins.map (package: { data = package; prefix = true; }) [
-      neovim
-      ripgrep
       git-lfs
       tree
       fastfetch
@@ -23,6 +22,7 @@
       selfpkgs.starship
       selfpkgs.git
       selfpkgs.tmux
+      selfpkgs.neovim
     ];
 
     configFile.content = 

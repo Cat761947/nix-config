@@ -37,7 +37,9 @@
         
 	set -g status-keys vi
 	set -g mode-keys vi
-        
+
+        set -g focus-events on
+                
 	bind-key h select-pane -L
         bind-key j select-pane -D
         bind-key k select-pane -U
