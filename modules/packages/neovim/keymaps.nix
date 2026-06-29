@@ -1,5 +1,11 @@
-{
-  flake.modules.nvf.keymaps = {pkgs, ...}: {
+{lib, ...}: {
+  flake.modules.nvf.keymaps = {
+    pkgs,
+    options,
+    ...
+  }: let
+    overrideMappings = mappingsOption: mappings: (lib.overrideExisting (lib.mapAttrs (name: value: null) mappingsOption) mappings);
+  in {
     vim = {
       lazy = {
         enable = true;
@@ -47,7 +53,7 @@
 
       opts.mouse = "";
 
-      navigation.harpoon.mappings = {
+      navigation.harpoon.mappings = overrideMappings options.vim.navigation.harpoon.mappings {
         file1 = "<leader>h1";
         file2 = "<leader>h2";
         file3 = "<leader>h3";
@@ -56,29 +62,41 @@
         markFile = "<leader>ha";
       };
 
-      autocomplete.blink-cmp.mappings = {
+      autocomplete.blink-cmp.mappings = overrideMappings options.vim.autocomplete.blink-cmp.mappings {
         close = "<C-x>";
         complete = "<C-c>";
         scrollDocsDown = "<C-s>";
         scrollDocsUp = "<C-d>";
+        confirm = "<CR>";
+        next = "<Tab>";
+        previous = "<S-Tab>";
       };
 
-      telescope.setupOpts.defaults.default_mappings = let
-        bothBinds = {
-          "<esc>" = "close";
-          "<Tab>" = "move_selection_next";
-          "<S-Tab>" = "move_selection_previous";
-          "<CR>" = "select_default";
-          "<C-a>" = "preview_scrolling_left";
-          "<C-s>" = "preview_scrolling_down";
-          "<C-d>" = "preview_scrolling_up";
-          "<C-f>" = "preview_scrolling_right";
-          "<C-j>" = "nop";
+      telescope = {
+        mappings = overrideMappings options.vim.telescope.mappings {
+          gitFiles = "<leader>fgf";
+          findFiles = "<leader>ff";
         };
-      in {
-        i = bothBinds;
-        n = bothBinds;
+
+        setupOpts.defaults.default_mappings = let
+          bothBinds = {
+            "<esc>" = "close";
+            "<Tab>" = "move_selection_next";
+            "<S-Tab>" = "move_selection_previous";
+            "<CR>" = "select_default";
+            "<C-a>" = "preview_scrolling_left";
+            "<C-s>" = "preview_scrolling_down";
+            "<C-d>" = "preview_scrolling_up";
+            "<C-f>" = "preview_scrolling_right";
+            "<C-j>" = "nop";
+          };
+        in {
+          i = bothBinds;
+          n = bothBinds;
+        };
       };
+
+      lsp.mappings = overrideMappings options.vim.lsp.mappings {codeAction = "<leader>la";};
     };
   };
 }
