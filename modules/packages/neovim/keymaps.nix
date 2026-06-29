@@ -59,8 +59,8 @@
       autocomplete.blink-cmp.mappings = {
         close = "<C-x>";
         complete = "<C-c>";
-        scrollDocsDown = "<C-b>";
-        scrollDocsUp = "<C-n>";
+        scrollDocsDown = "<C-i>";
+        scrollDocsUp = "<C-o>";
       };
 
       telescope.setupOpts.defaults.default_mappings = let
@@ -69,10 +69,10 @@
           "<Down>" = "move_selection_next";
           "<Up>" = "move_selection_previous";
           "<CR>" = "select_default";
-          "<C-v>" = "preview_scrolling_left";
-          "<C-b>" = "preview_scrolling_down";
-          "<C-n>" = "preview_scrolling_up";
-          "<C-m>" = "preview_scrolling_right";
+          "<C-u>" = "preview_scrolling_left";
+          "<C-i>" = "preview_scrolling_down";
+          "<C-o>" = "preview_scrolling_up";
+          "<C-p>" = "preview_scrolling_right";
           "<C-j>" = "nop";
         };
       in {
