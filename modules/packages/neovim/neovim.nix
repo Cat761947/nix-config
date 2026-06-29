@@ -26,7 +26,7 @@
           }
           general
           apperance
-          binds
+          keymaps
           languageOptions
         ];
       }).neovim;
