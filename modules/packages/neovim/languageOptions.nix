@@ -7,6 +7,7 @@
       };
 
       languages = {
+        enableExtraDiagnostics = true;
         enableFormat = true;
         enableTreesitter = true;
         nix = {
