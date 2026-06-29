@@ -59,20 +59,20 @@
       autocomplete.blink-cmp.mappings = {
         close = "<C-x>";
         complete = "<C-c>";
-        scrollDocsDown = "<C-i>";
-        scrollDocsUp = "<C-o>";
+        scrollDocsDown = "<C-s>";
+        scrollDocsUp = "<C-d>";
       };
 
       telescope.setupOpts.defaults.default_mappings = let
         bothBinds = {
           "<esc>" = "close";
-          "<Down>" = "move_selection_next";
-          "<Up>" = "move_selection_previous";
+          "<Tab>" = "move_selection_next";
+          "<S-Tab>" = "move_selection_previous";
           "<CR>" = "select_default";
-          "<C-u>" = "preview_scrolling_left";
-          "<C-i>" = "preview_scrolling_down";
-          "<C-o>" = "preview_scrolling_up";
-          "<C-p>" = "preview_scrolling_right";
+          "<C-a>" = "preview_scrolling_left";
+          "<C-s>" = "preview_scrolling_down";
+          "<C-d>" = "preview_scrolling_up";
+          "<C-f>" = "preview_scrolling_right";
           "<C-j>" = "nop";
         };
       in {
