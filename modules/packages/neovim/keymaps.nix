@@ -4,7 +4,7 @@
     options,
     ...
   }: let
-    overrideMappings = mappingsOption: mappings: (lib.overrideExisting (lib.mapAttrs (name: value: null) mappingsOption) mappings);
+    overrideMappings = mappingsOption: mappings: (lib.mergeAttrs (lib.mapAttrs (name: value: null) mappingsOption) mappings);
   in {
     vim = {
       lazy = {
@@ -74,8 +74,9 @@
 
       telescope = {
         mappings = overrideMappings options.vim.telescope.mappings {
-          gitFiles = "<leader>fgf";
+          gitFiles = "<leader>fg";
           findFiles = "<leader>ff";
+          liveGrep = "<leader>ft";
         };
 
         setupOpts.defaults.default_mappings = let
