@@ -12,9 +12,31 @@
         config.virtual_text = true;
       };
 
-      lsp = {
+      lsp.inlayHints.enable = true;
+
+      statusline.lualine = {
         enable = true;
-        inlayHints.enable = true;
+        theme = "auto";
+        globalStatus = true;
+
+        activeSection = {
+          a = [''{"mode"}''];
+          b = [''{"diagnostics"}'' ''{"lsp_status"}''];
+          c = [''''];
+          x = [''''];
+          y = [''{"branch"}''];
+          z = [''{"filename"}''];
+        };
+
+        sectionSeparator = {
+          right = "";
+          left = "";
+        };
+
+        componentSeparator = {
+          left = "";
+          right = "";
+        };
       };
     };
   };
