@@ -24,7 +24,10 @@
         };
         knownUsers = [config.system.primaryUser];
       };
-      nix.settings.experimental-features = "nix-command flakes";
+      nix.settings = {
+        experimental-features = "nix-command flakes";
+        auto-optimise-store = true;
+      };
     };
   in
     inputs.nix-darwin.lib.darwinSystem {
