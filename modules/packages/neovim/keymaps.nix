@@ -65,8 +65,8 @@
       autocomplete.blink-cmp.mappings = overrideMappings options.vim.autocomplete.blink-cmp.mappings {
         close = "<C-x>";
         complete = "<C-c>";
-        scrollDocsDown = "<C-s>";
-        scrollDocsUp = "<C-d>";
+        scrollDocsDown = "<C-j>";
+        scrollDocsUp = "<C-k>";
         confirm = "<CR>";
         next = "<Tab>";
         previous = "<S-Tab>";
@@ -85,11 +85,10 @@
             "<Tab>" = "move_selection_next";
             "<S-Tab>" = "move_selection_previous";
             "<CR>" = "select_default";
-            "<C-a>" = "preview_scrolling_left";
-            "<C-s>" = "preview_scrolling_down";
-            "<C-d>" = "preview_scrolling_up";
-            "<C-f>" = "preview_scrolling_right";
-            "<C-j>" = "nop";
+            "<C-h>" = "preview_scrolling_left";
+            "<C-j>" = "preview_scrolling_down";
+            "<C-k>" = "preview_scrolling_up";
+            "<C-l>" = "preview_scrolling_right";
           };
         in {
           i = bothBinds;
