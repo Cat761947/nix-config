@@ -14,6 +14,12 @@
           enable = true;
           lsp.servers = ["nixd"];
         };
+
+        markdown = {
+          enable = true;
+          extensions.render-markdown-nvim.enable = true;
+          format.type = ["prettier"];
+        };
       };
 
       extraPackages = [pkgs.tree-sitter];

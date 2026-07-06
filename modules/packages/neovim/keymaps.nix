@@ -96,7 +96,10 @@
         };
       };
 
-      lsp.mappings = overrideMappings options.vim.lsp.mappings {codeAction = "<leader>la";};
+      lsp.mappings = overrideMappings options.vim.lsp.mappings {
+        codeAction = "<leader>la";
+        goToDefinition = "<leader>ld";
+      };
     };
   };
 }
