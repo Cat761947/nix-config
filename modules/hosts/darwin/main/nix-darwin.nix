@@ -10,6 +10,10 @@
       config,
       ...
     }: {
+      # Remove next 2 lines when updating flake.lock
+      documentation.enable = false;
+      system.tools.darwin-uninstaller.enable = false;
+
       nixpkgs.hostPlatform = "aarch64-darwin";
 
       system = {
