@@ -22,7 +22,19 @@
         };
       };
 
-      extraPackages = [pkgs.tree-sitter];
+      # Required for render-markdown-nvim
+      treesitter.grammars = with pkgs.vimPlugins.nvim-treesitter.grammarPlugins; [
+        html
+        latex
+        yaml
+      ];
+
+      extraPackages = with pkgs; [
+        tree-sitter
+
+        # Required for render-markdown-nvim
+        python314Packages.pylatexenc
+      ];
     };
   };
 }
