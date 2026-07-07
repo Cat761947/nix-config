@@ -19,6 +19,7 @@
           enable = true;
           extensions.render-markdown-nvim.enable = true;
           format.type = ["prettier"];
+          lsp.servers = ["markdown-oxide"];
         };
       };
 
