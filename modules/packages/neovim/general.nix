@@ -17,7 +17,7 @@
       visuals.nvim-web-devicons.enable = true;
       navigation.harpoon.enable = true;
 
-      extraPackages = [pkgs.ripgrep pkgs.fd];
+      extraPackages = with pkgs; [ripgrep fd];
     };
   };
 }
