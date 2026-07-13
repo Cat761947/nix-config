@@ -15,6 +15,10 @@
       "macfuse"
       "veracrypt"
       "tuta-mail"
+      {
+        name = "colemak-dh";
+        postinstall = "sudo cp -f \\\"/Library/Keyboard Layouts/Colemak DH.bundle/Contents/Resources/Colemak DH ANSI.keylayout\\\" \\\"/Library/Keyboard Layouts/\\\"";
+      }
     ];
   };
 }

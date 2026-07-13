@@ -104,6 +104,7 @@
 
 - Turn keyboard backlight off after inactivity `5 minutes`
 - Keyboard Shortcuts
+- Keyboard Layout `Colemak DH ANSI`
 - Text Replacements `None`
 
 #### Finder
