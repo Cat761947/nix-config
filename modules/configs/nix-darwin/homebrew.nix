@@ -3,7 +3,11 @@
     homebrew = {
       enable = true;
       greedyCasks = true;
-      onActivation.extraFlags = ["--force-cleanup"];
+      onActivation = {
+        cleanup = "uninstall";
+        autoUpdate = true;
+        upgrade = true;
+      };
     };
   };
 }
