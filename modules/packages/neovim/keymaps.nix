@@ -63,8 +63,7 @@
       };
 
       autocomplete.blink-cmp.mappings = overrideMappings options.vim.autocomplete.blink-cmp.mappings {
-        close = "<C-x>";
-        complete = "<C-c>";
+        close = "<C-d>";
         scrollDocsDown = "<C-j>";
         scrollDocsUp = "<C-k>";
         confirm = "<CR>";
