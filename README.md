@@ -68,6 +68,10 @@
 - `Rectangle.app`
 - `Tuta Mail.app`
 
+#### Device Management
+
+- **Quad9** `DNSSEC, Threat Blocking, DoH` (<https://docs.quad9.net/Setup_Guides/MacOS/Big_Sur_and_later_(Encrypted)>)
+
 #### Desktop & Dock
 
 - Default web browser `LibreWolf.app`
@@ -122,16 +126,19 @@
 
 ### uBlock Origin Settings
 
-- **Settings**
-  - I am an advanced user `Enable`
+#### Settings
 
-- **My Rules**
-  - **(+)** `* * 3p-script block`
-  - **(+)** `* * 3p-frame block`
-  - **(+)** `youtube.com * 3p-script noop`
-  - **(+)** `github.com * 3p-script noop`
+- I am an advanced user `Enable`
 
-- **My Filters**
-  - **(+)** `youtube.com##.ytd-rich-section-renderer.style-scope`
-  - **(+)** `youtube.com##ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope`
-  - **(+)** `youtube.com##grid-shelf-view-model.ytGridShelfViewModelHostHasBottomButton.ytd-item-section-renderer.ytGridShelfViewModelHost`
+#### My Rules
+
+- **(+)** `* * 3p-script block`
+- **(+)** `* * 3p-frame block`
+- **(+)** `youtube.com * 3p-script noop`
+- **(+)** `github.com * 3p-script noop`
+
+#### My Filters
+
+- **(+)** `youtube.com##.ytd-rich-section-renderer.style-scope`
+- **(+)** `youtube.com##ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope`
+- **(+)** `youtube.com##grid-shelf-view-model.ytGridShelfViewModelHostHasBottomButton.ytd-item-section-renderer.ytGridShelfViewModelHost`
