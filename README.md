@@ -142,3 +142,4 @@
 - **(+)** `youtube.com##:matches-path(/^(?!\/feed\/history)/) ytd-rich-section-renderer`
 - **(+)** `youtube.com##:matches-path(/^(?!\/feed\/history)/) ytd-reel-shelf-renderer`
 - **(+)** `youtube.com##ytd-guide-entry-renderer:has(yt-formatted-string:has-text(/^Shorts$/))`
+- **(+)** `youtube.com##ytd-mini-guide-entry-renderer:has(span:has-text(/^Shorts$/))`
