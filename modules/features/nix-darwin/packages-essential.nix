@@ -12,8 +12,8 @@
       "linearmouse"
       "freefilesync"
       "proton-drive"
-      "macfuse"
-      "veracrypt"
+      "veracrypt-fuse-t"
+      "fuse-t"
       "tuta-mail"
       {
         name = "colemak-dh";
