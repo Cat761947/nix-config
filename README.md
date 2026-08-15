@@ -139,6 +139,6 @@
 
 #### My Filters
 
-- **(+)** `youtube.com##.ytd-rich-section-renderer.style-scope`
-- **(+)** `youtube.com##ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope`
-- **(+)** `youtube.com##grid-shelf-view-model.ytGridShelfViewModelHostHasBottomButton.ytd-item-section-renderer.ytGridShelfViewModelHost`
+- **(+)** `youtube.com##:matches-path(/^(?!\/feed\/history)/) ytd-rich-section-renderer`
+- **(+)** `youtube.com##:matches-path(/^(?!\/feed\/history)/) ytd-reel-shelf-renderer`
+- **(+)** `youtube.com##ytd-guide-entry-renderer:has(yt-formatted-string:has-text(/^Shorts$/))`
