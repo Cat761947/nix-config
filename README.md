@@ -43,7 +43,7 @@
 - `host-<host-config-name>-<name>` are module stored under `/modules/hosts`.
   These modules should only be used by the host specified by the `<host-config-name>`
 - `wrapper-<wrapper-name>-<name>` are modules stored under `/modules/packages`
-  These modules should only be used by the wrapper specified by the `<wrapper-name`
+  These modules should only be used by the wrapper specified by the `<wrapper-name>`
 
 ### Bundle Naming Info
 

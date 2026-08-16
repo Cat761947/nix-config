@@ -4,8 +4,9 @@
       catppuccin = {
         data = pkgs.vimPlugins.catppuccin-nvim;
         lazy = true;
-        config = "require('plugins.catppuccin')";
-        before = ["INIT_MAIN"];
+        config = "require('lua.plugins.catppuccin')";
+        before = ["init"];
+        after = ["lz-n"];
       };
     };
   };

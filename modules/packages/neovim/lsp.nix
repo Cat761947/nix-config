@@ -2,7 +2,7 @@
   flake.wrappers.wrapper-neovim-lsp = {pkgs, ...}: {
     specs.nvim-lspconfig = {
       data = pkgs.vimPlugins.nvim-lspconfig;
-      config = "require('lsp')";
+      config = "require('lua.lsp')";
     };
     runtimePkgs = with pkgs; (map (data: {
         prefix = true;

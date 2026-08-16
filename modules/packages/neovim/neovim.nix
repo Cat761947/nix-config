@@ -11,6 +11,7 @@
       config-catppuccin-flavour
       wrapper-neovim-plugins
       wrapper-neovim-lsp
+      wrapper-neovim-conform
     ];
 
     runtimePkgs = [
@@ -25,9 +26,14 @@
       config_directory = ./.;
     };
 
-    specs.lz-n = {
-      data = pkgs.vimPlugins.lz-n;
-      before = ["INIT_MAIN"];
+    specs = {
+      init = {
+        before = ["INIT_MAIN"];
+        config = "require('lua.init')";
+        data = null;
+      };
+
+      lz-n.data = pkgs.vimPlugins.lz-n;
     };
   };
 }
