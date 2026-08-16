@@ -24,9 +24,12 @@
         };
         knownUsers = [config.system.primaryUser];
       };
-      nix.settings = {
-        experimental-features = "nix-command flakes";
-        auto-optimise-store = true;
+      nix = {
+        settings = {
+          experimental-features = "nix-command flakes";
+          auto-optimise-store = true;
+        };
+        nixPath = ["nixpkgs=${inputs.nixpkgs}"];
       };
     };
   in

@@ -1,34 +1,33 @@
-{
-  self,
-  inputs,
-  lib,
-  ...
-}: {
+{self, ...}: {
   flake.wrappers.neovim = {
     pkgs,
-    config,
     wlib,
+    config,
     ...
   }: {
-    imports = with self.wrapperModules; [wlib.modules.default config-xdg-directories config-catppuccin-flavour];
-    env = {
-      NIX_PATH = "nixpkgs=${inputs.nixpkgs}";
+    imports = with self.wrapperModules; [
+      wlib.wrapperModules.neovim
+      config-xdg-directories
+      config-catppuccin-flavour
+      wrapper-neovim-plugins
+      wrapper-neovim-lsp
+    ];
+
+    runtimePkgs = [
+      {
+        prefix = true;
+        data = pkgs.ripgrep;
+      }
+    ];
+
+    settings = {
+      inherit (config) catppuccinFlavour;
+      config_directory = ./.;
     };
-    package =
-      (inputs.nvf.lib.neovimConfiguration {
-        inherit pkgs;
-        modules = with self.modules.nvf; [
-          {
-            options.catppuccinFlavour = lib.mkOption {
-              default = config.catppuccinFlavour;
-              readOnly = true;
-            };
-          }
-          general
-          apperance
-          keymaps
-          languageOptions
-        ];
-      }).neovim;
+
+    specs.lz-n = {
+      data = pkgs.vimPlugins.lz-n;
+      before = ["INIT_MAIN"];
+    };
   };
 }
