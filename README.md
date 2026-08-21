@@ -13,8 +13,6 @@
 #### Install Nix
 
 ```zsh
-sudo mv /etc/bashrc /etc/bashrc.before-nix-darwin &&
-sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin &&
 rm -i ~/nix-installer.sh
 curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install \
 -o ~/nix-installer.sh &&
@@ -31,6 +29,8 @@ rm ~/nix-installer.sh
 #### Load Configuration
 
 ```zsh
+sudo mv /etc/bashrc /etc/bashrc.before-nix-darwin &&
+sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin &&
 sudo nix run --extra-experimental-features "nix-command flakes" \
 "tarball+https://codeberg.org/Cat_761947/nix-config/archive/main.tar.gz\
 #darwin-rebuild" -- switch --flake \
@@ -123,8 +123,7 @@ sudo nix run --extra-experimental-features "nix-command flakes" \
 
 #### Wallpaper
 
-- Wallpaper `Ventura`
-- Screen Saver `Automatic`
+- Wallpaper `Ventura (Dark)`
 - Start Screen Saver `1 minute`
 - Show large clock `On Screen Saver and Lock Screen`
 
