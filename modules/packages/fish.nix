@@ -15,5 +15,6 @@
       else catppuccinFlavour
     }";
     flags."--no-config" = false;
+    env.SHELL = with config; "${placeholder outputName}/${binDir}/${binName}";
   };
 }

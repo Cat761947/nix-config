@@ -9,7 +9,7 @@
     config,
     ...
   }: let
-    wrapConfig = {catppuccinFlavour = "mocha";};
+    wrapConfig = {inherit (config) catppuccinFlavour;};
 
     selfpkgs = with self.packages.${pkgs.stdenv.hostPlatform.system}; {
       starship = starship.wrap wrapConfig;
@@ -20,7 +20,7 @@
   in {
     imports = with self.wrapperModules; [fish wlib.modules.default];
 
-    catppuccinFlavour = wrapConfig.catppuccinFlavour;
+    catppuccinFlavour = "mocha";
 
     runtimePkgs = with selfpkgs;
       map (package: {
@@ -37,9 +37,8 @@
         neovim
       ];
 
-    configFile.content = with config; ''
+    configFile.content = ''
       ${self.wrappers.fish.configFile.content}
-      set -gx SHELL ${placeholder outputName}/${binDir}/${binName}
       ${lib.getExe selfpkgs.starship} init fish | source
     '';
   };
