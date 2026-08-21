@@ -6,6 +6,36 @@
 - **GitHub** _\<Live Mirror Repo\>_ (<https://github.com/Cat761947/nix-config>)
 - **GitLab** _\<Daily Mirror Repo\>_ (<https://gitlab.com/Cat_761947/nix-config>)
 
+## Inital Setup Commands
+
+### Darwin
+
+#### Install Nix
+
+```zsh
+rm -i ~/nix-installer.sh
+curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install \
+-o ~/nix-installer.sh &&
+sh ~/nix-installer.sh &&
+rm ~/nix-installer.sh
+```
+
+#### Install Homebrew
+
+```zsh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+#### Load Configuration
+
+```zsh
+sudo nix run --extra-experimental-features "nix-command flakes" \
+"tarball+https://codeberg.org/Cat_761947/nix-config/archive/main.tar.gz\
+#darwin-rebuild" -- switch --flake \
+"tarball+https://codeberg.org/Cat_761947/nix-config/archive/main.tar.gz\
+#main"
+```
+
 ## Configuration Information
 
 ### Folder Structure Info
