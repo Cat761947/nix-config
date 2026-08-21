@@ -13,6 +13,8 @@
 #### Install Nix
 
 ```zsh
+sudo mv /etc/bashrc /etc/bashrc.before-nix-darwin &&
+sudo mv /etc/zshrc /etc/zshrc.before-nix-darwin &&
 rm -i ~/nix-installer.sh
 curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install \
 -o ~/nix-installer.sh &&
@@ -95,6 +97,7 @@ sudo nix run --extra-experimental-features "nix-command flakes" \
 
 #### Login Items & Extensions
 
+- `Bitwarden.app`
 - `LinearMouse.app`
 - `realTimeSync.sh`
 - `Rectangle.app`
@@ -136,18 +139,28 @@ sudo nix run --extra-experimental-features "nix-command flakes" \
 - Turn display off on power adapter when inactive `10 minutes`
 - Require password after screen saver begins `Immediately`
 
+#### Users & Groups
+
+- Profile Pictures
+
 #### Keyboard
 
 - Turn keyboard backlight off after inactivity `5 minutes`
-- Keyboard Shortcuts
 - Keyboard Layout `Colemak DH ANSI`
+- Keyboard Shortcuts
 - Text Replacements `None`
 
 #### Finder
 
 - Sidebar Items
 
-### LibreWolf Extensions
+### LibreWolf
+
+#### Settings
+
+- Smooth Scrolling `Off`
+
+#### Extensions
 
 - **uBlock Origin** (<https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/>)
 - **CanvasBlocker** (<https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/>)
@@ -156,20 +169,20 @@ sudo nix run --extra-experimental-features "nix-command flakes" \
 - **Volume Control** (<https://addons.mozilla.org/en-US/firefox/addon/volume-control-boost-volume/>)
 - **Video Speed Controller** (<https://addons.mozilla.org/en-US/firefox/addon/videospeed/>)
 
-### uBlock Origin Settings
+#### uBlock Origin
 
-#### Settings
+##### Advanced Settings
 
 - I am an advanced user `Enable`
 
-#### My Rules
+##### My Rules
 
 - **(+)** `* * 3p-script block`
 - **(+)** `* * 3p-frame block`
 - **(+)** `youtube.com * 3p-script noop`
 - **(+)** `github.com * 3p-script noop`
 
-#### My Filters
+##### My Filters
 
 - **(+)** `youtube.com##:matches-path(/^(?!\/feed\/history)/) ytd-rich-section-renderer`
 - **(+)** `youtube.com##:matches-path(/^(?!\/feed\/history)/) ytd-reel-shelf-renderer`
