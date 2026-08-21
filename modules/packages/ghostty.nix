@@ -15,7 +15,7 @@
       config-xdg-directories
     ];
     package = with pkgs;
-      if stdenv.isDarwin
+      if stdenv.hostPlatform.isDarwin
       then ghostty-bin
       else ghostty;
     flags = {

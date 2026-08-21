@@ -5,6 +5,7 @@
       rectangle
       librewolf
       keka
+      bitwarden-desktop
     ];
 
     homebrew.casks = [
