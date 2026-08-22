@@ -16,24 +16,10 @@
         stateVersion = 7;
         primaryUser = "cat_761947";
       };
-      users = {
-        users.${config.system.primaryUser} = {
-          home = "/Users/${config.system.primaryUser}";
-          shell = lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.shell-fish-main;
-          uid = 501;
-        };
-        knownUsers = [config.system.primaryUser];
-      };
-      nix = {
-        settings = {
-          experimental-features = "nix-command flakes";
-          auto-optimise-store = true;
-        };
-        nixPath = [
-          {configName = "main";}
-        ];
-      };
-      environment.variables.SSH_AUTH_SOCK = "${config.users.users.${config.system.primaryUser}.home}/.bitwarden-ssh-agent.sock";
+
+      users.users.${config.system.primaryUser}.shell = lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.shell-fish-main;
+
+      nix.nixPath = [{configName = "main";}];
     };
   in
     inputs.nix-darwin.lib.darwinSystem {
@@ -46,6 +32,9 @@
         feature-terminal-main
 
         config-homebrew
+        config-primary-user-setup
+        config-nix-settings
+
         feature-packages-essential
         feature-packages-utility
         feature-packages-games
