@@ -12,6 +12,7 @@
       wrapper-neovim-plugins
       wrapper-neovim-lsp
       wrapper-neovim-conform
+      wrapper-neovim-treesitter
     ];
 
     runtimePkgs = [
