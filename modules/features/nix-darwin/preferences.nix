@@ -169,7 +169,7 @@
     system.defaults = {
       NSGlobalDomain = {
         AppleShowAllFiles = true;
-        AppleShowAllExtensions = false;
+        AppleShowAllExtensions = true;
       };
 
       finder = {
