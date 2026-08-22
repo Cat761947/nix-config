@@ -21,7 +21,7 @@
 
       nix.nixPath = [
         {configName = "main";}
-        {flakeDirectory = toString ~/nix-config;}
+        {flakeDirectory = "${config.users.users.${config.system.primaryUser}.home}/nix-config";}
       ];
     };
   in
