@@ -10,9 +10,18 @@
       (name: pkg: name)
       lsp-servers;
 
-    specs.nvim-lspconfig = {
-      data = pkgs.vimPlugins.nvim-lspconfig;
-      config = "require('lua.lsp')";
+    specs = {
+      nvim-lspconfig = {
+        data = pkgs.vimPlugins.nvim-lspconfig;
+        config = "require('lua.lsp')";
+      };
+
+      lazydev = {
+        data = pkgs.vimPlugins.lazydev-nvim;
+        before = ["nvim-lspconfig"];
+        after = ["lz-n"];
+        lazy = true;
+      };
     };
 
     runtimePkgs =
