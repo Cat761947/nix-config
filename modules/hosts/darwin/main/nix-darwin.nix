@@ -29,7 +29,9 @@
           experimental-features = "nix-command flakes";
           auto-optimise-store = true;
         };
-        nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+        nixPath = [
+          {configName = "main";}
+        ];
       };
       environment.variables.SSH_AUTH_SOCK = "${config.users.users.${config.system.primaryUser}.home}/.bitwarden-ssh-agent.sock";
     };

@@ -2,14 +2,14 @@ vim.lsp.config("nixd", {
   settings = {
     nixd = {
       nixpkgs = {
-        expr = "import <nixpkgs> { }",
+        expr = "import (builtins.getFlake (toString ~/nix-config)).inputs.nixpkgs {}",
       },
       options = {
-        nixos = {
-          expr = "(builtins.getFlake (toString ./.)).nixosConfigurations.<hostname>.options",
+        nix_darwin = {
+          expr = "(builtins.getFlake (toString ~/nix-config)).darwinConfigurations.<configName>.options",
         },
         home_manager = {
-          expr = '(builtins.getFlake (toString ./.)).homeConfigurations."<username>@<hostname>".options',
+          expr = "(builtins.getFlake (toString ~/nix-config)).darwinConfigurations.<configName>.options.home-manager",
         },
       },
     },
