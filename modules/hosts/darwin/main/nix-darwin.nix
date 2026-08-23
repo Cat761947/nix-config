@@ -19,10 +19,7 @@
 
       users.users.${config.system.primaryUser}.shell = lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.shell-fish-main;
 
-      nix.nixPath = [
-        {configName = "main";}
-        {flakeDirectory = "${config.users.users.${config.system.primaryUser}.home}/nix-config";}
-      ];
+      nix.nixPath = [{flakeDirectory = "${config.users.users.${config.system.primaryUser}.home}/nix-config";}];
     };
   in
     inputs.nix-darwin.lib.darwinSystem {
