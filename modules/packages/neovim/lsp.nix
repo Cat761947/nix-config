@@ -19,7 +19,7 @@
       lazydev = {
         data = pkgs.vimPlugins.lazydev-nvim;
         before = ["lspconfig"];
-        after = ["lz-n"];
+        after = ["lz-n" "blink"];
         lazy = true;
       };
     };

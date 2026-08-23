@@ -8,6 +8,11 @@
         before = ["init"];
         after = ["lz-n"];
       };
+
+      blink = {
+        data = pkgs.vimPlugins.blink-cmp;
+        config = "require('lua.plugins.blink')";
+      };
     };
   };
   perSystem.wrappers.packages.wrapper-neovim-plugins = true;
