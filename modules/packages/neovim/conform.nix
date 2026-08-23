@@ -26,4 +26,5 @@
         (name: data: data.pkg)
         formatters);
   };
+  perSystem.wrappers.packages.wrapper-neovim-conform = true;
 }

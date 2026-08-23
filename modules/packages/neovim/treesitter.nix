@@ -20,4 +20,5 @@
       }
     ];
   };
+  perSystem.wrappers.packages.wrapper-neovim-treesitter = true;
 }
