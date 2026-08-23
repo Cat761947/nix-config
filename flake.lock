@@ -146,10 +146,10 @@
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
-        "wrapper-modules": "wrapper-modules"
+        "nix-wrapper-modules": "nix-wrapper-modules"
       }
     },
-    "wrapper-modules": {
+    "nix-wrapper-modules": {
       "inputs": {
         "nixpkgs": "nixpkgs_2"
       },
