@@ -1,9 +1,9 @@
 vim.cmd.colorscheme("catppuccin-nvim")
 
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.o.number = true
+vim.o.relativenumber = true
 
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+vim.o.shiftwidth = 2
+vim.o.expandtab = true
 
-vim.opt.mouse = ""
+vim.o.mouse = ""
