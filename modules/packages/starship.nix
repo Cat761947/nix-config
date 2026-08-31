@@ -12,6 +12,7 @@
     preset = ["catppuccin-powerline"];
     settings = {
       palette = "catppuccin_${config.catppuccinFlavour}";
+      cmd_duration.show_notifications = false;
     };
   };
 }
