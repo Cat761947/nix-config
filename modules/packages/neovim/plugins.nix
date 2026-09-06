@@ -37,6 +37,13 @@
         after = ["devicons"];
         config = "require('lua.plugins.lualine')";
       };
+
+      vim-tmux-navigator = {
+        data = pkgs.vimPlugins.vim-tmux-navigator;
+        config = "require('lua.plugins.vim-tmux-navigator')";
+        after = ["lz-n"];
+        lazy = true;
+      };
     };
     runtimePkgs = [
       {
