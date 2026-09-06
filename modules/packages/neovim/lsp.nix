@@ -7,7 +7,7 @@
   in {
     settings.lsp_servers =
       lib.mapAttrsToList
-      (name: pkg: name)
+      (name: _: name)
       lsp-servers;
 
     specs = {
@@ -29,7 +29,7 @@
         prefix = true;
         inherit data;
       }) (lib.mapAttrsToList
-        (name: pkg: pkg)
+        (_: pkg: pkg)
         lsp-servers);
   };
   perSystem.wrappers.packages.wrapper-neovim-lsp = true;

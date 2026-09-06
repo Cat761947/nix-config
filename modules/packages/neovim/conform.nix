@@ -11,7 +11,7 @@
       };
     };
   in {
-    settings.formatters = builtins.mapAttrs (ft: data: [data.name]) formatters;
+    settings.formatters = builtins.mapAttrs (_: data: [data.name]) formatters;
 
     specs.conform = {
       data = pkgs.vimPlugins.conform-nvim;
@@ -23,7 +23,7 @@
         prefix = true;
         inherit data;
       }) (lib.mapAttrsToList
-        (name: data: data.pkg)
+        (_: data: data.pkg)
         formatters);
   };
   perSystem.wrappers.packages.wrapper-neovim-conform = true;

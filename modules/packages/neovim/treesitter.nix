@@ -16,7 +16,7 @@
     specs.treesitter = {
       data = pkgs.vimPlugins.nvim-treesitter.withPlugins (
         plugins: (
-          map (ext: plugins.${ext}) treesitter-grammars
+          map (grammar: plugins.${grammar}) treesitter-grammars
         )
       );
       config = "require('lua.treesitter')";

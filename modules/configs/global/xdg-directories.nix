@@ -27,7 +27,7 @@
           nullOr (
             if (lib.strings.hasSuffix "_DIRS" name)
             then envVar
-            else str
+            else pathWith {}
           );
         default = value;
       }) (xdgDirectories homeDirectory);
@@ -40,7 +40,7 @@ in {
     }: {
       imports = [wlib.modules.default];
       options.xdgDirectories = xdgDirsConfig "$HOME";
-      config.env = builtins.mapAttrs (name: value:
+      config.env = builtins.mapAttrs (_: value:
         lib.mkDefault {
           data = value;
           esc-fn = x: "\"${x}\"";
