@@ -3,9 +3,13 @@ require("lz.n").load({
   lazy = true,
 })
 
-local keymap = require("lz.n").keymap({
+require("lz.n").load({
   "telescope.nvim",
-  keys = { "<leader>ff" },
+  keys = {
+    { "<leader>ff", "<cmd>Telescope find_files<cr>", mode = "n" },
+    { "<leader>ft", "<cmd>Telescope live_grep<cr>", mode = "n" },
+    { "<leader>fg", "<cmd>Telescope git_files<cr>", mode = "n" },
+  },
   cmd = "Telescope",
   before = function()
     require("lz.n").trigger_load("telescope-fzf-native.nvim")
@@ -45,13 +49,3 @@ local keymap = require("lz.n").keymap({
     require("telescope").load_extension("fzf")
   end,
 })
-
-keymap.set("n", "<leader>ff", function()
-  require("telescope.builtin").find_files()
-end, {})
-keymap.set("n", "<leader>ft", function()
-  require("telescope.builtin").live_grep()
-end, {})
-keymap.set("n", "<leader>fg", function()
-  require("telescope.builtin").git_files()
-end, {})
