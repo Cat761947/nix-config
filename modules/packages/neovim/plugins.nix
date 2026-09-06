@@ -28,8 +28,14 @@
 
       noice = {
         data = with pkgs.vimPlugins; [noice-nvim nvim-notify nui-nvim];
-        before = ["treesitter"];
+        after = ["treesitter"];
         config = "require('lua.plugins.noice')";
+      };
+
+      lualine = {
+        data = pkgs.vimPlugins.lualine-nvim;
+        after = ["devicons"];
+        config = "require('lua.plugins.lualine')";
       };
     };
     runtimePkgs = [
