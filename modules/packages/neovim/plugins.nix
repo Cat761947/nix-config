@@ -27,7 +27,7 @@
       };
 
       noice = {
-        data = with pkgs.vimPlugins; [noice-nvim nvim-notify nui-nvim];
+        data = with pkgs.vimPlugins; [noice-nvim nvim-notify];
         after = ["treesitter"];
         config = "require('lua.plugins.noice')";
       };
@@ -53,6 +53,7 @@
       };
     };
     runtimePkgs = [
+      # Required for Telescope
       {
         data = pkgs.fd;
         prefix = true;
