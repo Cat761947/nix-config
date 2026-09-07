@@ -44,6 +44,13 @@
         after = ["lz-n"];
         lazy = true;
       };
+
+      harpoon = {
+        data = pkgs.vimPlugins.harpoon2;
+        config = "require('lua.plugins.harpoon')";
+        after = ["lz-n"];
+        lazy = true;
+      };
     };
     runtimePkgs = [
       {
