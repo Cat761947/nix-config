@@ -8,7 +8,9 @@ local config = {
     lualine_a = {
       "mode",
       {
+        ---@diagnostic disable-next-line: undefined-field
         require("noice").api.status.mode.get,
+        ---@diagnostic disable-next-line: undefined-field
         cond = require("noice").api.status.mode.has,
       },
     },

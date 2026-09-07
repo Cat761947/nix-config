@@ -28,6 +28,7 @@ require("lz.n").load({
   },
   after = function()
     harpoon = require("harpoon")
+    ---@diagnostic disable-next-line:missing-parameter
     harpoon.setup()
   end,
 })
