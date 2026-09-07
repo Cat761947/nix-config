@@ -6,9 +6,9 @@ require("lz.n").load({
 require("lz.n").load({
   "telescope.nvim",
   keys = {
-    { "<leader>ff", "<cmd>Telescope find_files<cr>", mode = "n" },
-    { "<leader>ft", "<cmd>Telescope live_grep<cr>", mode = "n" },
-    { "<leader>fg", "<cmd>Telescope git_files<cr>", mode = "n" },
+    { "<leader>ff", "<cmd>Telescope find_files<cr>" },
+    { "<leader>ft", "<cmd>Telescope live_grep<cr>" },
+    { "<leader>fg", "<cmd>Telescope git_files<cr>" },
   },
   cmd = "Telescope",
   before = function()
