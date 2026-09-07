@@ -6,8 +6,17 @@
 - **GitHub** _\<Live Mirror Repo\>_ (<https://github.com/Cat761947/nix-config>)
 - **GitLab** _\<Daily Mirror Repo\>_ (<https://gitlab.com/Cat_761947/nix-config>)
 
-## Inital Setup Commands
+## Commands
 
+### Universal
+
+#### Run Bundled Package
+
+```bash
+nix run --extra-experimental-features "nix-command flakes" \
+"tarball+https://codeberg.org/Cat_761947/nix-config/archive/main.tar.gz\
+#shell-fish-main" 
+```
 ### Darwin
 
 #### Install Nix
