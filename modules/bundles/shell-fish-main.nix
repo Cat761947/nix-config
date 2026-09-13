@@ -9,14 +9,9 @@
     config,
     ...
   }: let
-    wrapConfig = {inherit (config) catppuccinFlavour;};
+    selfpkgs = self.packages.${pkgs.stdenv.hostPlatform.system};
 
-    selfpkgs = with self.packages.${pkgs.stdenv.hostPlatform.system}; {
-      starship = starship.wrap wrapConfig;
-      inherit git;
-      tmux = tmux.wrap wrapConfig;
-      neovim = neovim.wrap wrapConfig;
-    };
+    wrapConfig = pkg: pkg.wrap {inherit (config) catppuccinFlavour;};
   in {
     imports = with self.wrapperModules; [fish wlib.modules.default];
 
@@ -31,10 +26,10 @@
         pkgs.tree
         pkgs.fastfetch
 
-        starship
+        (wrapConfig starship)
         git
-        tmux
-        neovim
+        (wrapConfig tmux)
+        (wrapConfig neovim)
       ];
 
     configFile.content = ''

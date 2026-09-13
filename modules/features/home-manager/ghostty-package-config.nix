@@ -8,7 +8,7 @@
   in {
     imports = [self.homeModules.config-xdg-directories];
     home.file.".config/ghostty/config".text = ''
-      ${self.wrappers.ghostty.constructFiles.config.content}
+      ${self.wrappers.terminal-ghostty-main.constructFiles.ghosttyConfig.content}
       ${envVar "XDG_DATA_HOME"}
       ${envVar "XDG_CONFIG_HOME"}
       ${envVar "XDG_STATE_HOME"}

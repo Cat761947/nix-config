@@ -9,6 +9,6 @@
       fish.package = selfpkgs.shell-fish-main;
     };
 
-    environment.systemPackages = [selfpkgs.ghostty];
+    environment.systemPackages = [selfpkgs.terminal-ghostty-main];
   };
 }

@@ -5,7 +5,10 @@
     config,
     ...
   }: let
-    tmuxRepo = pkgs.fetchFromGitHub {
+    # The reason that I manually add TMP instead of using
+    # nixpkgs is because the tmux plugins in nixpkgs
+    # are outdated
+    tpmRepo = pkgs.fetchFromGitHub {
       sha256 = "sha256-oRKUZNyJYQXlkeQfbEYiltUEBpvdwn2SoEBWHVUNmrA=";
       rev = "e261deb1b47614eed3400089ce7197dc68acc4eb";
       owner = "tmux-plugins";
@@ -23,7 +26,7 @@
     package = pkgs.tmux;
     buildCommand.installTPM = {
       # the sed command is to change the tpm tmux config directory to the nix store one. chmod is because the folder does not have write perms
-      data = "cp -r ${tmuxRepo} ${storePath}/tpm && chmod +w ${storePath}/tpm/scripts/helpers/ && sed -i 's|\${XDG_CONFIG_HOME:-\\$HOME/.config}/tmux/tmux.conf|${config.constructFiles."tmux.conf".path}|' ${storePath}/tpm/scripts/helpers/plugin_functions.sh";
+      data = "cp -r ${tpmRepo} ${storePath}/tpm && chmod +w ${storePath}/tpm/scripts/helpers/ && sed -i 's|\${XDG_CONFIG_HOME:-\\$HOME/.config}/tmux/tmux.conf|${config.constructFiles."tmux.conf".path}|' ${storePath}/tpm/scripts/helpers/plugin_functions.sh";
     };
     constructFiles."tmux.conf" = {
       relPath = "tmux.conf";

@@ -5,32 +5,20 @@
 }: {
   flake.wrappers.ghostty = {
     wlib,
-    pkgs,
     config,
     ...
   }: {
     imports = with self.wrapperModules; [
-      wlib.modules.default
+      wlib.wrapperModules.ghostty
       config-catppuccin-flavour
       config-xdg-directories
     ];
-    package = with pkgs;
-      if stdenv.hostPlatform.isDarwin
-      then ghostty-bin
-      else ghostty;
-    flags = {
-      "--config-default-files" = "false";
-      "--config-file" = config.constructFiles.config.path;
+    settings = {
+      auto-update = "off";
+      font-family = "FiraCode Nerd Font";
+      theme = "Catppuccin ${lib.toSentenceCase config.catppuccinFlavour}";
     };
-    flagSeparator = "=";
 
-    constructFiles."config" = {
-      content = ''
-        theme = Catppuccin ${lib.toSentenceCase config.catppuccinFlavour}
-        auto-update = off
-        font-family = FiraCode Nerd Font
-      '';
-      relPath = "config";
-    };
+    prefixVar = [["PATH" ":" "${placeholder config.outputName}${config.wrapperPaths.relDir}"]];
   };
 }
