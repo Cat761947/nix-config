@@ -196,3 +196,31 @@ sudo nix run --extra-experimental-features "nix-command flakes" \
 - **(+)** `youtube.com##:matches-path(/^(?!\/feed\/history)/) ytd-reel-shelf-renderer`
 - **(+)** `youtube.com##ytd-guide-entry-renderer:has(yt-formatted-string:has-text(/^Shorts$/))`
 - **(+)** `youtube.com##ytd-mini-guide-entry-renderer:has(span:has-text(/^Shorts$/))`
+
+### OBS
+
+#### MacOS
+
+##### General
+
+- Language `English`
+- Show confirmation dialog when stopping recording `On`
+
+##### Output
+
+- Output Mode `Advanced`
+
+###### Recording
+
+- Recording Format `Hybrid MP4`
+- Video Encoder `Apple VT HEVC Hardware Endoder`
+- Audio Encoder `FFmpeg Opus`
+- Rate Control `CRF`
+- Quality `100`
+- Keyframe Interval `0`
+
+##### Video
+
+- Base (Canvas) Resolution `Max Dropdown Value`
+- Output (Scaled) Resolution `Same As Base`
+
