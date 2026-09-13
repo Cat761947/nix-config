@@ -222,5 +222,5 @@ sudo nix run --extra-experimental-features "nix-command flakes" \
 ##### Video
 
 - Base (Canvas) Resolution `Max Dropdown Value`
-- Output (Scaled) Resolution `Same As Base`
+- Output (Scaled) Resolution `Same as Base`
 
