@@ -30,6 +30,7 @@
         git
         (wrapConfig tmux)
         (wrapConfig neovim)
+        (wrapConfig yazi)
       ];
 
     configFile.content = ''
