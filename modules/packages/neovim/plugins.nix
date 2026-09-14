@@ -34,7 +34,7 @@
 
       lualine = {
         data = pkgs.vimPlugins.lualine-nvim;
-        after = ["devicons"];
+        after = ["devicons" "noice"];
         config = "require('lua.plugins.lualine')";
       };
 
