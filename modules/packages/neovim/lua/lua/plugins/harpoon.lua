@@ -16,6 +16,7 @@ require("lz.n").load({
     },
     {
       "<C-c>",
+      mode = { "n", "i" },
       function()
         harpoon.ui:close_menu()
       end,

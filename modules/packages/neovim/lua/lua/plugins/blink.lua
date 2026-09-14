@@ -14,12 +14,12 @@ require("blink.cmp").setup({
     ["<C-l>"] = { "scroll_documentation_down", "scroll_signature_down" },
     ["<C-h>"] = { "scroll_documentation_up", "scroll_signature_up" },
 
-    ["<C-c>"] = { "show", "select_and_accept" },
+    ["<C-space>"] = { "show", "select_and_accept" },
 
     ["<C-q>"] = { "cancel" },
 
     ["<C-d>"] = { "show", "show_documentation", "hide_documentation" },
-    ["<C-s>"] = { "show", "show_signature", "hide_signature" },
+    ["<C-s>"] = { "show_signature", "hide_signature" },
   },
 
   cmdline = {

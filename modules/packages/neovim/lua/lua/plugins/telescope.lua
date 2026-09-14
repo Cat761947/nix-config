@@ -19,7 +19,6 @@ require("lz.n").load({
       defaults = {
         default_mappings = {
           i = {
-            ["<ESC>"] = "close",
             ["<C-c>"] = "close",
 
             ["<C-j>"] = "move_selection_next",
@@ -33,6 +32,15 @@ require("lz.n").load({
           n = {
             ["<ESC>"] = "close",
             ["<C-c>"] = "close",
+            ["c"] = "close",
+
+            ["j"] = "move_selection_next",
+            ["k"] = "move_selection_previous",
+
+            ["h"] = "preview_scrolling_up",
+            ["l"] = "preview_scrolling_down",
+
+            ["<CR>"] = "select_default",
           },
         },
       },
