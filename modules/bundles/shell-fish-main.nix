@@ -33,9 +33,20 @@
         (wrapConfig yazi)
       ];
 
+    env.EDITOR = lib.getExe (wrapConfig selfpkgs.neovim);
+
     configFile.content = ''
       ${self.wrappers.fish.configFile.content}
       ${lib.getExe selfpkgs.starship} init fish | source
+
+      function yazi
+        set tmp (mktemp -t "yazi-cwd.XXXXXX")
+        command yazi $argv --cwd-file="$tmp"
+        if read -z cwd < "$tmp"; and [ "$cwd" != "$PWD" ]; and test -d "$cwd"
+          builtin cd -- "$cwd"
+        end
+        command rm -f -- "$tmp"
+      end
     '';
   };
 }
