@@ -15,6 +15,12 @@ require("lz.n").load({
       end,
     },
     {
+      "<C-c>",
+      function()
+        harpoon.ui:close_menu()
+      end,
+    },
+    {
       "<leader>ha",
       function()
         harpoon:list():add()
