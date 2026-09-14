@@ -18,8 +18,8 @@ require("blink.cmp").setup({
 
     ["<C-q>"] = { "cancel" },
 
-    ["<C-d>"] = { "show_documentation", "hide_documentation" },
-    ["<C-s>"] = { "show_signature", "hide_signature" },
+    ["<C-d>"] = { "show", "show_documentation", "hide_documentation" },
+    ["<C-s>"] = { "show", "show_signature", "hide_signature" },
   },
 
   cmdline = {
