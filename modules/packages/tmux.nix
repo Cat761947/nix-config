@@ -9,10 +9,10 @@
     # nixpkgs is because the tmux plugins in nixpkgs
     # are outdated
     tpmRepo = pkgs.fetchFromGitHub {
-      sha256 = "sha256-oRKUZNyJYQXlkeQfbEYiltUEBpvdwn2SoEBWHVUNmrA=";
-      rev = "e261deb1b47614eed3400089ce7197dc68acc4eb";
       owner = "tmux-plugins";
       repo = "tpm";
+      rev = "e261deb1b47614eed3400089ce7197dc68acc4eb";
+      hash = "sha256-oRKUZNyJYQXlkeQfbEYiltUEBpvdwn2SoEBWHVUNmrA=";
     };
 
     storePath = placeholder config.outputName;
@@ -24,14 +24,18 @@
       config-xdg-directories
     ];
     package = pkgs.tmux;
-    buildCommand.installTPM = {
-      # the sed command is to change the tpm tmux config directory to the nix store one. chmod is because the folder does not have write perms
-      data = "cp -r ${tpmRepo} ${storePath}/tpm && chmod +w ${storePath}/tpm/scripts/helpers/ && sed -i 's|\${XDG_CONFIG_HOME:-\\$HOME/.config}/tmux/tmux.conf|${config.constructFiles."tmux.conf".path}|' ${storePath}/tpm/scripts/helpers/plugin_functions.sh";
+    # This build command is used to replace the
+    # path where TPM searches for tmux.conf to
+    # the tmux.conf file located in the nix store
+    buildCommand.patchTPM = {
+      data =
+        "cp -r ${tpmRepo} ${storePath}/tpm && "
+        + "chmod +w ${storePath}/tpm/scripts/helpers/ && "
+        + "sed -i 's!\\\${XDG_CONFIG_HOME:-\\$HOME/.config}/tmux/tmux.conf!${config.constructFiles."tmux.conf".path}!' '${storePath}/tpm/scripts/helpers/plugin_functions.sh'";
     };
     constructFiles."tmux.conf" = {
       relPath = "tmux.conf";
       content = ''
-        set -g @plugin "tmux-plugins/tpm"
         set -g @plugin "tmux-plugins/tmux-battery"
         set -g @plugin "catppuccin/tmux#v2.3.0"
         set -g @plugin "christoomey/vim-tmux-navigator"
