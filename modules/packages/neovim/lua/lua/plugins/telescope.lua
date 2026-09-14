@@ -32,7 +32,6 @@ require("lz.n").load({
           n = {
             ["<ESC>"] = "close",
             ["<C-c>"] = "close",
-            ["c"] = "close",
 
             ["j"] = "move_selection_next",
             ["k"] = "move_selection_previous",
