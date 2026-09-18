@@ -1,14 +1,22 @@
 {
   flake.wrappers.wrapper-neovim-treesitter = {pkgs, ...}: let
-    # vim, regex, lua, bash, markdown, and markdown-inline are required for Noice.nvim
     treesitter-grammars = [
       "nix"
-      "lua"
+
+      # These 4 below are required for Noice.nvim
       "vim"
       "regex"
+      "lua"
       "bash"
+
+      # These 2 below are required for Noice.nvim & render-markdown.nvim
       "markdown"
       "markdown-inline"
+
+      # These 3 below are required for render-markdown.nvim
+      "html"
+      "latex"
+      "yaml"
     ];
   in {
     settings.treesitter_grammars = treesitter-grammars;

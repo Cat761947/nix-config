@@ -3,6 +3,7 @@
     lsp-servers = with pkgs; {
       nixd = nixd;
       lua_ls = lua-language-server;
+      markdown_oxide = markdown-oxide;
     };
   in {
     settings.lsp_servers =

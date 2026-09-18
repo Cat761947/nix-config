@@ -13,6 +13,7 @@ require("lz.n").load({
         harpoon = true,
         noice = true,
         telescope = true,
+        render_markdown = true,
       },
     })
   end,

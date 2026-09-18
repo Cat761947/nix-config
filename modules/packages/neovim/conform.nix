@@ -9,6 +9,10 @@
         pkg = stylua;
         name = "stylua";
       };
+      markdown = {
+        pkg = prettier;
+        name = "prettier";
+      };
     };
   in {
     settings.formatters = builtins.mapAttrs (_: data: [data.name]) formatters;

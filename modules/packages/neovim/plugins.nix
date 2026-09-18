@@ -51,14 +51,25 @@
         after = ["lz-n"];
         lazy = true;
       };
+
+      render-markdown = {
+        data = pkgs.vimPlugins.render-markdown-nvim;
+        config = "require('lua.plugins.render-markdown')";
+        after = ["devicons" "lz-n"];
+        lazy = true;
+      };
     };
-    runtimePkgs = [
-      # Required for Telescope
-      {
-        data = pkgs.fd;
+    runtimePkgs =
+      map (package: {
+        data = package;
         prefix = true;
-      }
-    ];
+      }) [
+        # Required for Telescope
+        pkgs.fd
+
+        # Required for render-markdown.nvim
+        pkgs.python314Packages.pylatexenc
+      ];
   };
   perSystem.wrappers.packages.wrapper-neovim-plugins = true;
 }
