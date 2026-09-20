@@ -26,21 +26,21 @@ require("noice.config.routes").defaults = function()
     -- :messages command
     {
       view = options.messages.view_history,
-      opts = { title = "Messages" },
+      opts = { title = "Messages", enter = true },
       filter = { event = "msg_history_show" },
     },
 
-    -- :history command
+    -- :history & :ls command
     {
       view = options.messages.view_history,
-      opts = { title = "History" },
+      opts = { title = "History", enter = true },
       filter = { event = "msg_show", kind = "list_cmd" },
     },
 
     -- :! commands
     {
       view = options.messages.view_history,
-      opts = { title = "Shell Output", merge = true },
+      opts = { title = "Shell Output", merge = true, enter = true },
       filter = {
         event = "msg_show",
         ---@diagnostic disable-next-line: assign-type-mismatch
@@ -120,28 +120,84 @@ require("noice.config.routes").defaults = function()
         any = {
           { event = "msg_showcmd" },
           { event = "msg_ruler" },
-          { event = "lsp", kind = "signature" },
         },
       },
     },
 
     -- Unhandled Events
     {
-      view = "popup",
-      opts = { title = "Unhandled" },
+      view = "notify",
+      opts = { title = "Unhandled", format = "details" },
       filter = {},
     },
   }
 end
 
+local defaults = require("noice.config").defaults()
+defaults.commands = {}
+---@diagnostic disable-next-line: duplicate-set-field
+require("noice.config").defaults = function()
+  return defaults
+end
+
 ---@type NoiceConfig
 require("noice").setup({
+  ---@type NoiceConfigViews
+  views = {
+    split = { close = { keys = { "<C-c>" } } },
+    popup = { close = { keys = { "<C-c>" } } },
+  },
+
   messages = { view_history = "popup" },
+
+  commands = {
+    history = {
+      opts = { format = "details", enter = true },
+      view = "popup",
+      filter = {
+        ["not"] = {
+          any = {
+            { event = "msg_showcmd" },
+            { event = "msg_ruler" },
+          },
+        },
+      },
+    },
+
+    all = {
+      opts = { format = "details", enter = true },
+      view = "popup",
+    },
+
+    split = {
+      opts = { format = "details", enter = true },
+      view = "split",
+      filter = {
+        ["not"] = {
+          any = {
+            { event = "msg_showcmd" },
+            { event = "msg_ruler" },
+          },
+        },
+      },
+    },
+
+    splitAll = {
+      opts = { format = "details", enter = true },
+      view = "split",
+    },
+  },
 
   lsp = {
     override = {
       ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
       ["vim.lsp.util.stylize_markdown"] = true,
+    },
+    signature = {
+      enabled = false,
+    },
+    hover = {
+      enabled = false,
     },
   },
 
