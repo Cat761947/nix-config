@@ -30,6 +30,7 @@
 
         feature-preferences
         feature-terminal-main
+        feature-linearmouse-config
 
         config-homebrew
         config-primary-user-setup
