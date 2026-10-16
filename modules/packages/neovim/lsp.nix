@@ -1,7 +1,7 @@
 {lib, ...}: {
   flake.wrappers.wrapper-neovim-lsp = {pkgs, ...}: let
     lsp-servers = with pkgs; {
-      nixd = nixd;
+      nil_ls = nil;
       lua_ls = lua-language-server;
       markdown_oxide = markdown-oxide;
     };
