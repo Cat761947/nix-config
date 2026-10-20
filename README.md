@@ -15,8 +15,9 @@
 ```bash
 nix run --extra-experimental-features "nix-command flakes" \
 "tarball+https://codeberg.org/Cat_761947/nix-config/archive/main.tar.gz\
-#shell-fish-main" 
+#shell-fish-main"
 ```
+
 ### Darwin
 
 #### Install Nix
@@ -106,11 +107,24 @@ sudo nix run --extra-experimental-features "nix-command flakes" \
 
 #### Login Items & Extensions
 
+##### Open at Login
+
 - `Bitwarden.app`
 - `LinearMouse.app`
 - `realTimeSync.sh`
 - `Rectangle.app`
 - `Tuta Mail.app`
+
+##### Extensions
+
+###### File Providers
+
+- Keka `Enable`
+
+###### Sharing
+
+- AirDrop
+- Mail
 
 #### Device Management
 
@@ -223,4 +237,3 @@ sudo nix run --extra-experimental-features "nix-command flakes" \
 
 - Base (Canvas) Resolution `Max Dropdown Value`
 - Output (Scaled) Resolution `Same as Base`
-
