@@ -142,6 +142,8 @@ sudo nix run --extra-experimental-features "nix-command flakes" \
 #### Menu Bar
 
 - Recent documents, applications, and servers `None`
+- Show suggestions in Control Gallery `Off`
+- Control Center `Empty`
 - Spotlight `Off`
 
 #### Wallpaper

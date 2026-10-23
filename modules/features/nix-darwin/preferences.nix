@@ -58,7 +58,11 @@
 
     # Menu Bar
     system.defaults = {
-      controlcenter.NowPlaying = false;
+      controlcenter = {
+        NowPlaying = false;
+        Bluetooth = true;
+        Sound = true;
+      };
 
       CustomUserPreferences = {
         NSGlobalDomain = {
