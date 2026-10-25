@@ -164,6 +164,7 @@
         NSAutomaticPeriodSubstitutionEnabled = false;
         NSAutomaticQuoteSubstitutionEnabled = false;
       };
+      CustomUserPreferences.NSGlobalDomain.NSSmartReplyEnabled = 0;
 
       hitoolbox.AppleFnUsageType = "Do Nothing";
       CustomUserPreferences.NSGlobalDomain.AppleKeyboardUIMode = 2;
