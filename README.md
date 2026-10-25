@@ -182,12 +182,33 @@ sudo nix run --extra-experimental-features "nix-command flakes" \
 
 #### Settings
 
-- Smooth Scrolling `Off`
+##### Search
+
+- Additional Search Engines `None`
+
+##### Privacy & Security
+
+###### Clear History Exceptions
+
+- **(+)** `https://codeberg.org`
+- **(+)** `https://duckduckgo.com`
+- **(+)** `https://roblox.com`
+- **(+)** `https://github.com`
+- **(+)** `https://youtube.com`
+
+##### Downloads
+
+###### Files and applications
+
+- AVIF `Save File`
+- XML `Save File`
+- PDF `Save File`
+- SVG `Save File`
+- WebP `Save File`
 
 #### Extensions
 
 - **uBlock Origin** (<https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/>)
-- **CanvasBlocker** (<https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/>)
 - **Bitwarden** (<https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager/>)
 - **SponsorBlock** (<https://addons.mozilla.org/en-US/firefox/addon/sponsorblock/>)
 - **Volume Control** (<https://addons.mozilla.org/en-US/firefox/addon/volume-control-boost-volume/>)
@@ -204,14 +225,19 @@ sudo nix run --extra-experimental-features "nix-command flakes" \
 - **(+)** `* * 3p-script block`
 - **(+)** `* * 3p-frame block`
 - **(+)** `youtube.com * 3p-script noop`
+- **(+)** `roblox.com * 3p-script noop`
 - **(+)** `github.com * 3p-script noop`
 
 ##### My Filters
 
-- **(+)** `youtube.com##:matches-path(/^(?!\/feed\/history)/) ytd-rich-section-renderer`
-- **(+)** `youtube.com##:matches-path(/^(?!\/feed\/history)/) ytd-reel-shelf-renderer`
+- **(+)** `youtube.com##:matches-path(/^(?!\/feed\/history)/) ytd-rich-section-renderer:has(span#title:has-text(/^Shorts$/))`
+- **(+)** `youtube.com##:matches-path(/^(?!\/feed\/history)/) grid-shelf-view-model:has(span.ytAttributedStringHost:has-text(/^Shorts$/))`
 - **(+)** `youtube.com##ytd-guide-entry-renderer:has(yt-formatted-string:has-text(/^Shorts$/))`
 - **(+)** `youtube.com##ytd-mini-guide-entry-renderer:has(span:has-text(/^Shorts$/))`
+
+#### Video Speed Controller
+
+- Preferred Speed `2`
 
 ### OBS
 
