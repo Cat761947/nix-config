@@ -202,7 +202,7 @@ sudo nix run --extra-experimental-features "nix-command flakes" \
 
 - AVIF `Save File`
 - XML `Save File`
-- PDF `Save File`
+- PDF `Always Ask`
 - SVG `Save File`
 - WebP `Save File`
 
