@@ -1,34 +1,49 @@
 {
-  "$schema" : "https:\/\/schema.linearmouse.app\/0.11.1",
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.12.0",
   "schemes" : [
     {
       "buttons" : {
         "mappings" : [
           {
-            "action" : "mouse.button.left",
-            "button" : 0,
-            "command" : false,
-            "control" : true,
-            "option" : false,
-            "shift" : false
+            "outcomes" : {
+              "press" : {
+                "action" : "mouse.button.left",
+                "behavior" : "remap"
+              }
+            },
+            "trigger" : {
+              "input" : {
+                "button" : 0
+              },
+              "modifiers" : [
+                "control"
+              ]
+            }
           },
-	  {
+          {
             "action" : "mouse.wheel.scrollDown",
-            "command" : false,
-            "control" : false,
-            "option" : false,
-            "scroll" : "down",
-            "shift" : true
+            "trigger" : {
+              "input" : {
+                "wheel" : "down"
+              },
+              "modifiers" : [
+                "shift"
+              ]
+            }
           },
           {
             "action" : "mouse.wheel.scrollUp",
-            "command" : false,
-            "control" : false,
-            "option" : false,
-            "scroll" : "up",
-            "shift" : true
+            "trigger" : {
+              "input" : {
+                "wheel" : "up"
+              },
+              "modifiers" : [
+                "shift"
+              ]
+            }
           }
-        ]
+        ],
+        "universalBackForward" : true
       },
       "if" : {
         "device" : {
@@ -38,9 +53,13 @@
           "vendorID" : "0x46d"
         }
       },
+      "logitech" : {
+        "highResolutionWheel" : true
+      },
       "pointer" : {
-        "acceleration" : 0.612,
-        "disableAcceleration" : true
+        "acceleration" : 0.1015,
+        "disableAcceleration" : true,
+        "hardwareDPI" : 8000
       },
       "scrolling" : {
         "acceleration" : 1,
