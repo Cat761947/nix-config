@@ -5,6 +5,7 @@ vim.o.relativenumber = true
 
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
+vim.g.markdown_recommended_style = 0
 
 vim.o.mouse = ""
 
